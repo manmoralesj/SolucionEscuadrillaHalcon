@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7ecb22cc04614c479a8a4b70f367ff42" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.ADMINISTRADORES" Width="1.5" PointX="5.25" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AERONAVES" Width="1.5" PointX="6" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BITACORAS_VUELOS" Width="1.5" PointX="12.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.COMPONENTES" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CONDICION" Width="1.5" PointX="8.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CONSULTORES" Width="1.5" PointX="5.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CREDENCIALES" Width="1.5" PointX="5.25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ESTADO" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FABRICANTES_AERO" Width="1.5" PointX="3.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FALLAS_BBDD" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MANTENIMIENTOS" Width="1.5" PointX="8.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MEDICINAS" Width="1.5" PointX="6" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MODELOS_AERO" Width="1.5" PointX="3.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.OPERARIOS" Width="1.5" PointX="5.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PILOTOS" Width="1.5" PointX="8.25" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TIPO_AERONAVE" Width="1.5" PointX="3.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.USUARIOS" Width="1.5" PointX="3" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VUELOS" Width="1.5" PointX="10.5" PointY="15.25" IsExpanded="true" />
+        <AssociationConnector Association="Model.ADMINISTRADORES_USUARIOS_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AERONAVES_ESTADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AERONAVES_FABRICANTES_AERO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AERONAVES_MODELOS_AERO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AERONAVES_TIPO_AERONAVE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MANTENIMIENTOS_AERONAVES_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VUELOS_AERONAVES_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.BITACORAS_VUELOS_VUELOS_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.COMPONENTES_COMPONENTES_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.COMPONENTES_ESTADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MANTENIMIENTOS_COMPONENTES_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VUELOS_CONDICION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CONSULTORES_USUARIOS_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CREDENCIALES_USUARIOS_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MANTENIMIENTOS_ESTADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.USUARIOS_ESTADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VUELOS_ESTADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.OPERARIOS_USUARIOS_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PILOTOS_USUARIOS_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MEDICINAS_PILOTOS" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PILOTOS_VUELOS" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

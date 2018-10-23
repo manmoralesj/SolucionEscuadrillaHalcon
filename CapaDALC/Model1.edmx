@@ -1,0 +1,2088 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADMINISTRADORES">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="RUT" Type="nvarchar2" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AERONAVES">
+          <Key>
+            <PropertyRef Name="IDAERONAVE" />
+          </Key>
+          <Property Name="IDAERONAVE" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="TIPO_AERONAVE_IDTIPO_AERONAVE" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ESTADO_IDESTADO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="FABRICANTES_AERO_IDFABRICANTE" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="MODELOS_AERO_IDMODELO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="HORAS_VOLADAS" Type="number" Precision="7" Scale="0" Nullable="false" />
+          <Property Name="CANT_MAX_HORAS" Type="number" Precision="7" Scale="0" Nullable="false" />
+          <Property Name="PATENTE" Type="nvarchar2" MaxLength="25" Nullable="false" />
+          <Property Name="ANIO_FAB" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="CANT_MAX_PILOTOS" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="FECHA_INSPECCION_ANUAL" Type="timestamp with local time zone" Precision="6" />
+          <Property Name="CAP_LITROS" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="MOTOR" Type="nvarchar2" MaxLength="255" Nullable="false" />
+          <Property Name="RUEDAS" Type="nvarchar2" MaxLength="255" Nullable="false" />
+          <Property Name="CANT_HELICES" Type="number" Precision="7" Scale="0" />
+          <Property Name="CANT_TURBINAS" Type="number" Precision="7" Scale="0" />
+        </EntityType>
+        <EntityType Name="BITACORAS_VUELOS">
+          <Key>
+            <PropertyRef Name="IDBITACORA_VUELO" />
+            <PropertyRef Name="VUELOS_IDVUELO" />
+          </Key>
+          <Property Name="IDBITACORA_VUELO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="VUELOS_IDVUELO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="HORA_INCIDENTE" Type="timestamp with local time zone" Precision="6" Nullable="false" />
+          <Property Name="desc" Type="nvarchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COMPONENTES">
+          <Key>
+            <PropertyRef Name="IDCOMPONENTE" />
+          </Key>
+          <Property Name="IDCOMPONENTE" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ESTADO_IDESTADO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar2" MaxLength="255" Nullable="false" />
+          <Property Name="HORAS_USADO" Type="number" Precision="7" Scale="0" />
+          <Property Name="HORAS_MAX_USO" Type="number" Precision="7" Scale="0" />
+          <Property Name="VECES_USADO" Type="number" Precision="7" Scale="0" />
+          <Property Name="MAX_NUM_USOS" Type="number" Precision="7" Scale="0" />
+          <Property Name="COMPONENTES_IDCOMPONENTE" Type="number" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="CONDICION">
+          <Key>
+            <PropertyRef Name="IDCONDICION_VUELO" />
+          </Key>
+          <Property Name="IDCONDICION_VUELO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="desc" Type="nvarchar2" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CONSULTORES">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="RUT" Type="nvarchar2" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CREDENCIALES">
+          <Key>
+            <PropertyRef Name="IDCREDENCIAL" />
+          </Key>
+          <Property Name="IDCREDENCIAL" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="PW" Type="nvarchar2" MaxLength="255" Nullable="false" />
+          <Property Name="USUARIOS_IDUSUARIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="RUT" Type="nvarchar2" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTADO">
+          <Key>
+            <PropertyRef Name="IDESTADO" />
+          </Key>
+          <Property Name="IDESTADO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="desc" Type="nvarchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FABRICANTES_AERO">
+          <Key>
+            <PropertyRef Name="IDFABRICANTE" />
+          </Key>
+          <Property Name="IDFABRICANTE" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_FAB" Type="nvarchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FALLAS_BBDD">
+          <Key>
+            <PropertyRef Name="IDFALLAS_BBDD" />
+          </Key>
+          <Property Name="IDFALLAS_BBDD" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="FECHA" Type="timestamp with local time zone" Precision="6" Nullable="false" />
+          <Property Name="ERROR" Type="nvarchar2" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MANTENIMIENTOS">
+          <Key>
+            <PropertyRef Name="IDMANTENIMIENTO" />
+            <PropertyRef Name="AERONAVES_IDAERONAVE" />
+            <PropertyRef Name="COMPONENTES_IDCOMPONENTE" />
+          </Key>
+          <Property Name="IDMANTENIMIENTO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="AERONAVES_IDAERONAVE" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ESTADO_IDESTADO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="OBS" Type="nvarchar2" MaxLength="255" Nullable="false" />
+          <Property Name="COMPONENTES_IDCOMPONENTE" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MEDICINAS">
+          <Key>
+            <PropertyRef Name="IDMEDICINA" />
+          </Key>
+          <Property Name="IDMEDICINA" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="DOSIS" Type="nvarchar2" MaxLength="150" Nullable="false" />
+          <Property Name="FECHA_VCTO" Type="timestamp" Precision="6" />
+        </EntityType>
+        <EntityType Name="MEDICINAS_PILOTOS">
+          <Key>
+            <PropertyRef Name="PILOTOS_IDUSUARIO" />
+            <PropertyRef Name="PILOTOS_RUT" />
+            <PropertyRef Name="MEDICINAS_IDMEDICINA" />
+          </Key>
+          <Property Name="PILOTOS_IDUSUARIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="PILOTOS_RUT" Type="nvarchar2" MaxLength="10" Nullable="false" />
+          <Property Name="MEDICINAS_IDMEDICINA" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MODELOS_AERO">
+          <Key>
+            <PropertyRef Name="IDMODELO" />
+          </Key>
+          <Property Name="IDMODELO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="MODELO_AERONAVE" Type="nvarchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OPERARIOS">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="RUT" Type="nvarchar2" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PILOTOS">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="HORAS_VOLADAS" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="RUT" Type="nvarchar2" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PILOTOS_VUELOS">
+          <Key>
+            <PropertyRef Name="PILOTOS_IDUSUARIO" />
+            <PropertyRef Name="PILOTOS_RUT" />
+            <PropertyRef Name="VUELOS_IDVUELO" />
+          </Key>
+          <Property Name="PILOTOS_IDUSUARIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="PILOTOS_RUT" Type="nvarchar2" MaxLength="10" Nullable="false" />
+          <Property Name="VUELOS_IDVUELO" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_AERONAVE">
+          <Key>
+            <PropertyRef Name="IDTIPO_AERONAVE" />
+          </Key>
+          <Property Name="IDTIPO_AERONAVE" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="desc" Type="nvarchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ESTADO_IDESTADO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="RUT" Type="nvarchar2" MaxLength="10" Nullable="false" />
+          <Property Name="NOMBRES" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="AP_PATERNO" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="AP_MATERNO" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="DOMICILIO" Type="nvarchar2" MaxLength="255" Nullable="false" />
+          <Property Name="TEL_CEL" Type="number" Precision="11" Scale="0" Nullable="false" />
+          <Property Name="TEL_FIJO" Type="number" Precision="10" Scale="0" />
+          <Property Name="CORREO" Type="nvarchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VUELOS">
+          <Key>
+            <PropertyRef Name="IDVUELO" />
+          </Key>
+          <Property Name="IDVUELO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ESTADO_IDESTADO" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="AERONAVES_IDAERONAVE" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="HORAS_ESTIMADAS" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="MISION" Type="nvarchar2" MaxLength="150" Nullable="false" />
+          <Property Name="FECHAHORA_INICIO" Type="timestamp with local time zone" Precision="6" />
+          <Property Name="CONDICION_IDCONDICION_VUELO" Type="number" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="ADMINISTRADORES_USUARIOS_FK">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="ADMINISTRADORES" Type="Self.ADMINISTRADORES" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="ADMINISTRADORES">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AERONAVES_ESTADO_FK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+          <End Role="AERONAVES" Type="Self.AERONAVES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="AERONAVES">
+              <PropertyRef Name="ESTADO_IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AERONAVES_FABRICANTES_AERO_FK">
+          <End Role="FABRICANTES_AERO" Type="Self.FABRICANTES_AERO" Multiplicity="1" />
+          <End Role="AERONAVES" Type="Self.AERONAVES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FABRICANTES_AERO">
+              <PropertyRef Name="IDFABRICANTE" />
+            </Principal>
+            <Dependent Role="AERONAVES">
+              <PropertyRef Name="FABRICANTES_AERO_IDFABRICANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AERONAVES_MODELOS_AERO_FK">
+          <End Role="MODELOS_AERO" Type="Self.MODELOS_AERO" Multiplicity="1" />
+          <End Role="AERONAVES" Type="Self.AERONAVES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELOS_AERO">
+              <PropertyRef Name="IDMODELO" />
+            </Principal>
+            <Dependent Role="AERONAVES">
+              <PropertyRef Name="MODELOS_AERO_IDMODELO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AERONAVES_TIPO_AERONAVE_FK">
+          <End Role="TIPO_AERONAVE" Type="Self.TIPO_AERONAVE" Multiplicity="1" />
+          <End Role="AERONAVES" Type="Self.AERONAVES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_AERONAVE">
+              <PropertyRef Name="IDTIPO_AERONAVE" />
+            </Principal>
+            <Dependent Role="AERONAVES">
+              <PropertyRef Name="TIPO_AERONAVE_IDTIPO_AERONAVE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BITACORAS_VUELOS_VUELOS_FK">
+          <End Role="VUELOS" Type="Self.VUELOS" Multiplicity="1" />
+          <End Role="BITACORAS_VUELOS" Type="Self.BITACORAS_VUELOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VUELOS">
+              <PropertyRef Name="IDVUELO" />
+            </Principal>
+            <Dependent Role="BITACORAS_VUELOS">
+              <PropertyRef Name="VUELOS_IDVUELO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="COMPONENTES_COMPONENTES_FK">
+          <End Role="COMPONENTES" Type="Self.COMPONENTES" Multiplicity="0..1" />
+          <End Role="COMPONENTES1" Type="Self.COMPONENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPONENTES">
+              <PropertyRef Name="IDCOMPONENTE" />
+            </Principal>
+            <Dependent Role="COMPONENTES1">
+              <PropertyRef Name="COMPONENTES_IDCOMPONENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="COMPONENTES_ESTADO_FK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+          <End Role="COMPONENTES" Type="Self.COMPONENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="COMPONENTES">
+              <PropertyRef Name="ESTADO_IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONSULTORES_USUARIOS_FK">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="CONSULTORES" Type="Self.CONSULTORES" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="CONSULTORES">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CREDENCIALES_USUARIOS_FK">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="CREDENCIALES" Type="Self.CREDENCIALES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="CREDENCIALES">
+              <PropertyRef Name="USUARIOS_IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MEDICINAS_PILOTOS_MEDICINAS_FK">
+          <End Role="MEDICINAS" Type="Self.MEDICINAS" Multiplicity="1" />
+          <End Role="MEDICINAS_PILOTOS" Type="Self.MEDICINAS_PILOTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDICINAS">
+              <PropertyRef Name="IDMEDICINA" />
+            </Principal>
+            <Dependent Role="MEDICINAS_PILOTOS">
+              <PropertyRef Name="MEDICINAS_IDMEDICINA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MEDICINAS_PILOTOS_PILOTOS_FK">
+          <End Role="PILOTOS" Type="Self.PILOTOS" Multiplicity="1" />
+          <End Role="MEDICINAS_PILOTOS" Type="Self.MEDICINAS_PILOTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PILOTOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="MEDICINAS_PILOTOS">
+              <PropertyRef Name="PILOTOS_IDUSUARIO" />
+              <PropertyRef Name="PILOTOS_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OPERARIOS_USUARIOS_FK">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="OPERARIOS" Type="Self.OPERARIOS" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="OPERARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PILOTOS_USUARIOS_FK">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="PILOTOS" Type="Self.PILOTOS" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="PILOTOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PILOTOS_VUELOS_PILOTOS_FK">
+          <End Role="PILOTOS" Type="Self.PILOTOS" Multiplicity="1" />
+          <End Role="PILOTOS_VUELOS" Type="Self.PILOTOS_VUELOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PILOTOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="PILOTOS_VUELOS">
+              <PropertyRef Name="PILOTOS_IDUSUARIO" />
+              <PropertyRef Name="PILOTOS_RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PILOTOS_VUELOS_VUELOS_FK">
+          <End Role="VUELOS" Type="Self.VUELOS" Multiplicity="1" />
+          <End Role="PILOTOS_VUELOS" Type="Self.PILOTOS_VUELOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VUELOS">
+              <PropertyRef Name="IDVUELO" />
+            </Principal>
+            <Dependent Role="PILOTOS_VUELOS">
+              <PropertyRef Name="VUELOS_IDVUELO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIOS_ESTADO_FK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="USUARIOS">
+              <PropertyRef Name="ESTADO_IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VUELOS_AERONAVES_FK">
+          <End Role="AERONAVES" Type="Self.AERONAVES" Multiplicity="1" />
+          <End Role="VUELOS" Type="Self.VUELOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AERONAVES">
+              <PropertyRef Name="IDAERONAVE" />
+            </Principal>
+            <Dependent Role="VUELOS">
+              <PropertyRef Name="AERONAVES_IDAERONAVE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VUELOS_CONDICION_FK">
+          <End Role="CONDICION" Type="Self.CONDICION" Multiplicity="1" />
+          <End Role="VUELOS" Type="Self.VUELOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONDICION">
+              <PropertyRef Name="IDCONDICION_VUELO" />
+            </Principal>
+            <Dependent Role="VUELOS">
+              <PropertyRef Name="CONDICION_IDCONDICION_VUELO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VUELOS_ESTADO_FK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+          <End Role="VUELOS" Type="Self.VUELOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="VUELOS">
+              <PropertyRef Name="ESTADO_IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_AGREGAR_ADMINISTRADOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_NOMBRES" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_AP_PATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_AP_MATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_DOMICILIO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_TEL_CEL" Type="number" Mode="In" />
+          <Parameter Name="V_TEL_FIJO" Type="number" Mode="In" />
+          <Parameter Name="V_CORREO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_PW" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_AGREGAR_BITACORA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_VUELO_IDVUELO" Type="number" Mode="In" />
+          <Parameter Name="V_HORA_INCIDENTE" Type="timestamp with local time zone" Mode="In" />
+          <Parameter Name="V_DESC" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_AGREGAR_COMPONENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_ESTADO" Type="number" Mode="In" />
+          <Parameter Name="V_NOMBRE" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_HORAS_USO" Type="number" Mode="In" />
+          <Parameter Name="V_HORAS_MAX_USO" Type="number" Mode="In" />
+          <Parameter Name="V_VECES_USADO" Type="number" Mode="In" />
+          <Parameter Name="V_MAX_USO" Type="number" Mode="In" />
+          <Parameter Name="V_IDCOMPONENTE" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_AGREGAR_CONSULTOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_NOMBRES" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_AP_PATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_AP_MATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_DOMICILIO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_TEL_CEL" Type="number" Mode="In" />
+          <Parameter Name="V_TEL_FIJO" Type="number" Mode="In" />
+          <Parameter Name="V_CORREO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_PW" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_AGREGAR_MANTENIMIENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_AERONAVE" Type="number" Mode="In" />
+          <Parameter Name="V_ESTADO" Type="number" Mode="In" />
+          <Parameter Name="V_OBS" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_COMPONENTE" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_AGREGAR_MEDICINA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_NOMBRE" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_DOSIS" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_AGREGAR_OPERARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_ESTADO" Type="number" Mode="In" />
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_NOMBRES" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_AP_PATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_AP_MATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_DOMICILIO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_TEL_CEL" Type="number" Mode="In" />
+          <Parameter Name="V_TEL_FIJO" Type="number" Mode="In" />
+          <Parameter Name="V_CORREO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_PW" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_AGREGAR_PILOTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="IN_IDESTADO" Type="number" Mode="In" />
+          <Parameter Name="IN_RUT" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IN_NOMBRES" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IN_AP_PATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IN_AP_MATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IN_DOMICILIO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IN_TEL_CEL" Type="number" Mode="In" />
+          <Parameter Name="IN_TEL_FIJO" Type="number" Mode="In" />
+          <Parameter Name="IN_CORREO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IN_HORAS_VOLADAS" Type="number" Mode="In" />
+          <Parameter Name="V_PW" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_AGREGAR_VUELO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_ESTADO" Type="number" Mode="In" />
+          <Parameter Name="V_AERONAVE" Type="number" Mode="In" />
+          <Parameter Name="V_HORAS_ESTIMADAS" Type="number" Mode="In" />
+          <Parameter Name="V_MISION" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_FECHA_INICIO" Type="timestamp with local time zone" Mode="In" />
+          <Parameter Name="V_CONDICION" Type="number" Mode="In" />
+          <Parameter Name="V_PILOTO" Type="number" Mode="In" />
+          <Parameter Name="V_COPILOTO" Type="number" Mode="In" />
+          <Parameter Name="V_RUT_PILOTO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_RUT_COPILOTO" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_ALERTA_INSPECCION_ANUAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON" />
+        <Function Name="SP_BUSCAR_AERONAVE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_MATRICULA" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_BUSCAR_COMPONENTES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_IDCOMPONENTE" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_BUSCAR_CONSULTOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_BUSCAR_COPILOTOS_VUELO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_IDVUELO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_BUSCAR_CREDENCIALES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_BUSCAR_MANTENCION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_IDMANTENIMIENTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_BUSCAR_OPERADOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_BUSCAR_PILOTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_BUSCAR_PILOTOS_VUELO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_IDVUELO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_BUSCAR_PILOTO_VUELO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_IDPILOTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_BUSCAR_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_BUSCAR_VUELO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_IDVUELO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_COMPLETAR_MANTENIMIENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_IDMANTENIMIENTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_COMPLETAR_VUELO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_IDVUELO" Type="number" Mode="In" />
+          <Parameter Name="V_HORAS" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_DESACTIVAR_ADMINISTRADOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_DESACTIVAR_AERONAVE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_PATENTE" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_DESACTIVAR_COMPONENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_IDCOMPONENTE" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_DESACTIVAR_CONSULTOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_DESACTIVAR_OPERARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_DESACTIVAR_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_ELIMINAR_ADMINISTRADOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_ELIMINAR_AERONAVE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_ID_AERONAVE" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_ELIMINAR_BITACORA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_IDBITACORA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_ELIMINAR_CONSULTOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="IN_RUT" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_ELIMINAR_MEDICINA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_IDMEDICINA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_ELIMINAR_OPERADOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="IN_RUT" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_ELIMINAR_PILOTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="IN_RUT" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_INGRESAR_AERONAVE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_TIPO_AERONAVE" Type="number" Mode="In" />
+          <Parameter Name="V_ESTADO" Type="number" Mode="In" />
+          <Parameter Name="V_FABRICANTES" Type="number" Mode="In" />
+          <Parameter Name="V_MODELO" Type="number" Mode="In" />
+          <Parameter Name="V_HORAS_VOLADAS" Type="number" Mode="In" />
+          <Parameter Name="V_CANT_MAX_HORAS" Type="number" Mode="In" />
+          <Parameter Name="V_PATENTE" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_ANIO" Type="number" Mode="In" />
+          <Parameter Name="V_CANT_MAX_PILOTOS" Type="number" Mode="In" />
+          <Parameter Name="V_FECHA_INSPECCION" Type="timestamp with local time zone" Mode="In" />
+          <Parameter Name="V_CAP_LITROS" Type="number" Mode="In" />
+          <Parameter Name="V_MOTOR" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_RUEDAS" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_CANT_HELICES" Type="number" Mode="In" />
+          <Parameter Name="V_CANT_TURBINAS" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_LISTADO_AERONAVES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON" />
+        <Function Name="SP_LISTADO_COMPONENTES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON" />
+        <Function Name="SP_LISTADO_MANTENCION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON" />
+        <Function Name="SP_LISTADO_MEDICINAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON" />
+        <Function Name="SP_LISTADO_OPERARIOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON" />
+        <Function Name="SP_LISTADO_PILOTOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON" />
+        <Function Name="SP_LISTADO_VUELOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON" />
+        <Function Name="SP_LISTAR_ADMINISTRADOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_LISTAR_BITACORAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON" />
+        <Function Name="SP_LOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="IN_RUT" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IN_PW" Type="nvarchar2" Mode="In" />
+          <Parameter Name="X_TIPO_USER" Type="varchar2" Mode="Out" />
+        </Function>
+        <Function Name="SP_LOGIN_RETORNA_NUMBER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="IN_RUT" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IN_PW" Type="nvarchar2" Mode="In" />
+          <Parameter Name="X_TIPO_USER" Type="number" Mode="Out" />
+        </Function>
+        <Function Name="SP_MODIFICAR_ADM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_NOMBRES" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_AP_PATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_AP_MATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_DOMICILIO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_TEL_CEL" Type="number" Mode="In" />
+          <Parameter Name="V_TEL_FIJO" Type="number" Mode="In" />
+          <Parameter Name="V_CORREO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_PW" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_MODIFICAR_AERONAVE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_TIPO_AERONAVE" Type="number" Mode="In" />
+          <Parameter Name="V_ESTADO" Type="number" Mode="In" />
+          <Parameter Name="V_FABRICANTES" Type="number" Mode="In" />
+          <Parameter Name="V_MODELO" Type="number" Mode="In" />
+          <Parameter Name="V_HORAS_VOLADAS" Type="number" Mode="In" />
+          <Parameter Name="V_CANT_MAX_HORAS" Type="number" Mode="In" />
+          <Parameter Name="V_PATENTE" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_ANIO" Type="number" Mode="In" />
+          <Parameter Name="V_CANT_MAX_PILOTOS" Type="number" Mode="In" />
+          <Parameter Name="V_FECHA_INSPECCION" Type="timestamp with local time zone" Mode="In" />
+          <Parameter Name="V_CAP_LITROS" Type="number" Mode="In" />
+          <Parameter Name="V_MOTOR" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_RUEDAS" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_CANT_HELICES" Type="number" Mode="In" />
+          <Parameter Name="V_CANT_TURBINAS" Type="number" Mode="In" />
+          <Parameter Name="V_IDAERONAVE" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_MODIFICAR_BITACORA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_VUELO_IDVUELO" Type="number" Mode="In" />
+          <Parameter Name="V_HORA_INCIDENTE" Type="timestamp with local time zone" Mode="In" />
+          <Parameter Name="V_DESC" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_IDBITACORA_VUELO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_MODIFICAR_COMPONENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_NOMBRE" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_HORAS_USO" Type="number" Mode="In" />
+          <Parameter Name="V_HORAS_MAX_USO" Type="number" Mode="In" />
+          <Parameter Name="V_VECES_USADO" Type="number" Mode="In" />
+          <Parameter Name="V_MAX_USO" Type="number" Mode="In" />
+          <Parameter Name="V_COMPONENTE_IDCOMPONENTE" Type="number" Mode="In" />
+          <Parameter Name="V_IDCOMPONENTE" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_MODIFICAR_CONSULTOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_NOMBRES" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_AP_PATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_AP_MATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_DOMICILIO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_TEL_CEL" Type="number" Mode="In" />
+          <Parameter Name="V_TEL_FIJO" Type="number" Mode="In" />
+          <Parameter Name="V_CORREO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_PW" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_MODIFICAR_MANTENIMIENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_AERONAVE" Type="number" Mode="In" />
+          <Parameter Name="V_ESTADO" Type="number" Mode="In" />
+          <Parameter Name="V_OBS" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_COMPONENTE" Type="number" Mode="In" />
+          <Parameter Name="V_IDMANTENIMIENTO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_MODIFICAR_MEDICINA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_NOMBRE" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_DOSIS" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_IDMEDICINA" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_MODIFICAR_OPERARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_NOMBRES" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_AP_PATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_AP_MATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_DOMICILIO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_TEL_CEL" Type="number" Mode="In" />
+          <Parameter Name="V_TEL_FIJO" Type="number" Mode="In" />
+          <Parameter Name="V_CORREO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_PW" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_MODIFICAR_PILOTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="IN_IDESTADO" Type="number" Mode="In" />
+          <Parameter Name="IN_RUT" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IN_NOMBRES" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IN_AP_PATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IN_AP_MATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IN_DOMICILIO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IN_TEL_CEL" Type="number" Mode="In" />
+          <Parameter Name="IN_TEL_FIJO" Type="number" Mode="In" />
+          <Parameter Name="IN_CORREO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="IN_HORAS_VOLADAS" Type="number" Mode="In" />
+          <Parameter Name="V_PW" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_MODIFICAR_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_NOMBRES" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_AP_PATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_AP_MATERNO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_DOMICILIO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_TEL_CEL" Type="number" Mode="In" />
+          <Parameter Name="V_TEL_FIJO" Type="number" Mode="In" />
+          <Parameter Name="V_CORREO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_RUT" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_PW" Type="nvarchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_MODIFICAR_VUELO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_AERONAVE" Type="number" Mode="In" />
+          <Parameter Name="V_HORAS_ESTIMADAS" Type="number" Mode="In" />
+          <Parameter Name="V_MISION" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_FECHA_INICIO" Type="timestamp with local time zone" Mode="In" />
+          <Parameter Name="V_CONDICION" Type="number" Mode="In" />
+          <Parameter Name="V_PILOTO" Type="number" Mode="In" />
+          <Parameter Name="V_RUT_PILOTO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_COPILOTO" Type="number" Mode="In" />
+          <Parameter Name="V_RUT_COPILOTO" Type="nvarchar2" Mode="In" />
+          <Parameter Name="V_VUELO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_REPORTE_AERNAVES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_TIPO_AERO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_REPORTE_MANT_AERONAVES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON" />
+        <Function Name="SP_REPORTE_MANT_COMPONENTES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON" />
+        <Function Name="SP_REPORTE_PILOTOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ESCUADRILLA_HALCON">
+          <Parameter Name="V_TIPO_AERO" Type="number" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ADMINISTRADORES" EntityType="Self.ADMINISTRADORES" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="AERONAVES" EntityType="Self.AERONAVES" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="BITACORAS_VUELOS" EntityType="Self.BITACORAS_VUELOS" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="COMPONENTES" EntityType="Self.COMPONENTES" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="CONDICION" EntityType="Self.CONDICION" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="CONSULTORES" EntityType="Self.CONSULTORES" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="CREDENCIALES" EntityType="Self.CREDENCIALES" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="ESTADO" EntityType="Self.ESTADO" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="FABRICANTES_AERO" EntityType="Self.FABRICANTES_AERO" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="FALLAS_BBDD" EntityType="Self.FALLAS_BBDD" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="MANTENIMIENTOS" EntityType="Self.MANTENIMIENTOS" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="MEDICINAS" EntityType="Self.MEDICINAS" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="MEDICINAS_PILOTOS" EntityType="Self.MEDICINAS_PILOTOS" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="MODELOS_AERO" EntityType="Self.MODELOS_AERO" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="OPERARIOS" EntityType="Self.OPERARIOS" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="PILOTOS" EntityType="Self.PILOTOS" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="PILOTOS_VUELOS" EntityType="Self.PILOTOS_VUELOS" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="TIPO_AERONAVE" EntityType="Self.TIPO_AERONAVE" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <EntitySet Name="VUELOS" EntityType="Self.VUELOS" Schema="ESCUADRILLA_HALCON" store:Type="Tables" />
+          <AssociationSet Name="ADMINISTRADORES_USUARIOS_FK" Association="Self.ADMINISTRADORES_USUARIOS_FK">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="ADMINISTRADORES" EntitySet="ADMINISTRADORES" />
+          </AssociationSet>
+          <AssociationSet Name="AERONAVES_ESTADO_FK" Association="Self.AERONAVES_ESTADO_FK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="AERONAVES" EntitySet="AERONAVES" />
+          </AssociationSet>
+          <AssociationSet Name="AERONAVES_FABRICANTES_AERO_FK" Association="Self.AERONAVES_FABRICANTES_AERO_FK">
+            <End Role="FABRICANTES_AERO" EntitySet="FABRICANTES_AERO" />
+            <End Role="AERONAVES" EntitySet="AERONAVES" />
+          </AssociationSet>
+          <AssociationSet Name="AERONAVES_MODELOS_AERO_FK" Association="Self.AERONAVES_MODELOS_AERO_FK">
+            <End Role="MODELOS_AERO" EntitySet="MODELOS_AERO" />
+            <End Role="AERONAVES" EntitySet="AERONAVES" />
+          </AssociationSet>
+          <AssociationSet Name="AERONAVES_TIPO_AERONAVE_FK" Association="Self.AERONAVES_TIPO_AERONAVE_FK">
+            <End Role="TIPO_AERONAVE" EntitySet="TIPO_AERONAVE" />
+            <End Role="AERONAVES" EntitySet="AERONAVES" />
+          </AssociationSet>
+          <AssociationSet Name="BITACORAS_VUELOS_VUELOS_FK" Association="Self.BITACORAS_VUELOS_VUELOS_FK">
+            <End Role="VUELOS" EntitySet="VUELOS" />
+            <End Role="BITACORAS_VUELOS" EntitySet="BITACORAS_VUELOS" />
+          </AssociationSet>
+          <AssociationSet Name="COMPONENTES_COMPONENTES_FK" Association="Self.COMPONENTES_COMPONENTES_FK">
+            <End Role="COMPONENTES" EntitySet="COMPONENTES" />
+            <End Role="COMPONENTES1" EntitySet="COMPONENTES" />
+          </AssociationSet>
+          <AssociationSet Name="COMPONENTES_ESTADO_FK" Association="Self.COMPONENTES_ESTADO_FK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="COMPONENTES" EntitySet="COMPONENTES" />
+          </AssociationSet>
+          <AssociationSet Name="CONSULTORES_USUARIOS_FK" Association="Self.CONSULTORES_USUARIOS_FK">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="CONSULTORES" EntitySet="CONSULTORES" />
+          </AssociationSet>
+          <AssociationSet Name="CREDENCIALES_USUARIOS_FK" Association="Self.CREDENCIALES_USUARIOS_FK">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="CREDENCIALES" EntitySet="CREDENCIALES" />
+          </AssociationSet>
+          <AssociationSet Name="MEDICINAS_PILOTOS_MEDICINAS_FK" Association="Self.MEDICINAS_PILOTOS_MEDICINAS_FK">
+            <End Role="MEDICINAS" EntitySet="MEDICINAS" />
+            <End Role="MEDICINAS_PILOTOS" EntitySet="MEDICINAS_PILOTOS" />
+          </AssociationSet>
+          <AssociationSet Name="MEDICINAS_PILOTOS_PILOTOS_FK" Association="Self.MEDICINAS_PILOTOS_PILOTOS_FK">
+            <End Role="PILOTOS" EntitySet="PILOTOS" />
+            <End Role="MEDICINAS_PILOTOS" EntitySet="MEDICINAS_PILOTOS" />
+          </AssociationSet>
+          <AssociationSet Name="OPERARIOS_USUARIOS_FK" Association="Self.OPERARIOS_USUARIOS_FK">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="OPERARIOS" EntitySet="OPERARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="PILOTOS_USUARIOS_FK" Association="Self.PILOTOS_USUARIOS_FK">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="PILOTOS" EntitySet="PILOTOS" />
+          </AssociationSet>
+          <AssociationSet Name="PILOTOS_VUELOS_PILOTOS_FK" Association="Self.PILOTOS_VUELOS_PILOTOS_FK">
+            <End Role="PILOTOS" EntitySet="PILOTOS" />
+            <End Role="PILOTOS_VUELOS" EntitySet="PILOTOS_VUELOS" />
+          </AssociationSet>
+          <AssociationSet Name="PILOTOS_VUELOS_VUELOS_FK" Association="Self.PILOTOS_VUELOS_VUELOS_FK">
+            <End Role="VUELOS" EntitySet="VUELOS" />
+            <End Role="PILOTOS_VUELOS" EntitySet="PILOTOS_VUELOS" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIOS_ESTADO_FK" Association="Self.USUARIOS_ESTADO_FK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="VUELOS_AERONAVES_FK" Association="Self.VUELOS_AERONAVES_FK">
+            <End Role="AERONAVES" EntitySet="AERONAVES" />
+            <End Role="VUELOS" EntitySet="VUELOS" />
+          </AssociationSet>
+          <AssociationSet Name="VUELOS_CONDICION_FK" Association="Self.VUELOS_CONDICION_FK">
+            <End Role="CONDICION" EntitySet="CONDICION" />
+            <End Role="VUELOS" EntitySet="VUELOS" />
+          </AssociationSet>
+          <AssociationSet Name="VUELOS_ESTADO_FK" Association="Self.VUELOS_ESTADO_FK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="VUELOS" EntitySet="VUELOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADMINISTRADORES">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="Int32" Nullable="false" />
+          <Property Name="RUT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="USUARIOS" Relationship="Self.ADMINISTRADORES_USUARIOS_FK" FromRole="ADMINISTRADORES" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="AERONAVES">
+          <Key>
+            <PropertyRef Name="IDAERONAVE" />
+          </Key>
+          <Property Name="IDAERONAVE" Type="Int32" Nullable="false" />
+          <Property Name="TIPO_AERONAVE_IDTIPO_AERONAVE" Type="Int32" Nullable="false" />
+          <Property Name="ESTADO_IDESTADO" Type="Int32" Nullable="false" />
+          <Property Name="FABRICANTES_AERO_IDFABRICANTE" Type="Int32" Nullable="false" />
+          <Property Name="MODELOS_AERO_IDMODELO" Type="Int32" Nullable="false" />
+          <Property Name="HORAS_VOLADAS" Type="Int32" Nullable="false" />
+          <Property Name="CANT_MAX_HORAS" Type="Int32" Nullable="false" />
+          <Property Name="PATENTE" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ANIO_FAB" Type="Int64" Nullable="false" />
+          <Property Name="CANT_MAX_PILOTOS" Type="Int16" Nullable="false" />
+          <Property Name="FECHA_INSPECCION_ANUAL" Type="DateTime" Precision="255" />
+          <Property Name="CAP_LITROS" Type="Int32" Nullable="false" />
+          <Property Name="MOTOR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RUEDAS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CANT_HELICES" Type="Int32" />
+          <Property Name="CANT_TURBINAS" Type="Int32" />
+          <NavigationProperty Name="ESTADO" Relationship="Self.AERONAVES_ESTADO_FK" FromRole="AERONAVES" ToRole="ESTADO" />
+          <NavigationProperty Name="FABRICANTES_AERO" Relationship="Self.AERONAVES_FABRICANTES_AERO_FK" FromRole="AERONAVES" ToRole="FABRICANTES_AERO" />
+          <NavigationProperty Name="MODELOS_AERO" Relationship="Self.AERONAVES_MODELOS_AERO_FK" FromRole="AERONAVES" ToRole="MODELOS_AERO" />
+          <NavigationProperty Name="TIPO_AERONAVE" Relationship="Self.AERONAVES_TIPO_AERONAVE_FK" FromRole="AERONAVES" ToRole="TIPO_AERONAVE" />
+          <NavigationProperty Name="MANTENIMIENTOS" Relationship="Self.MANTENIMIENTOS_AERONAVES_FK" FromRole="AERONAVES" ToRole="MANTENIMIENTOS" />
+          <NavigationProperty Name="VUELOS" Relationship="Self.VUELOS_AERONAVES_FK" FromRole="AERONAVES" ToRole="VUELOS" />
+        </EntityType>
+        <EntityType Name="BITACORAS_VUELOS">
+          <Key>
+            <PropertyRef Name="IDBITACORA_VUELO" />
+            <PropertyRef Name="VUELOS_IDVUELO" />
+          </Key>
+          <Property Name="IDBITACORA_VUELO" Type="Int32" Nullable="false" />
+          <Property Name="VUELOS_IDVUELO" Type="Int32" Nullable="false" />
+          <Property Name="HORA_INCIDENTE" Type="DateTime" Precision="255" Nullable="false" />
+          <Property Name="desc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="VUELOS" Relationship="Self.BITACORAS_VUELOS_VUELOS_FK" FromRole="BITACORAS_VUELOS" ToRole="VUELOS" />
+        </EntityType>
+        <EntityType Name="COMPONENTES">
+          <Key>
+            <PropertyRef Name="IDCOMPONENTE" />
+          </Key>
+          <Property Name="IDCOMPONENTE" Type="Int32" Nullable="false" />
+          <Property Name="ESTADO_IDESTADO" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HORAS_USADO" Type="Int32" />
+          <Property Name="HORAS_MAX_USO" Type="Int32" />
+          <Property Name="VECES_USADO" Type="Int32" />
+          <Property Name="MAX_NUM_USOS" Type="Int32" />
+          <Property Name="COMPONENTES_IDCOMPONENTE" Type="Int32" />
+          <NavigationProperty Name="COMPONENTES1" Relationship="Self.COMPONENTES_COMPONENTES_FK" FromRole="COMPONENTES" ToRole="COMPONENTES1" />
+          <NavigationProperty Name="COMPONENTES2" Relationship="Self.COMPONENTES_COMPONENTES_FK" FromRole="COMPONENTES1" ToRole="COMPONENTES" />
+          <NavigationProperty Name="ESTADO" Relationship="Self.COMPONENTES_ESTADO_FK" FromRole="COMPONENTES" ToRole="ESTADO" />
+          <NavigationProperty Name="MANTENIMIENTOS" Relationship="Self.MANTENIMIENTOS_COMPONENTES_FK" FromRole="COMPONENTES" ToRole="MANTENIMIENTOS" />
+        </EntityType>
+        <EntityType Name="CONDICION">
+          <Key>
+            <PropertyRef Name="IDCONDICION_VUELO" />
+          </Key>
+          <Property Name="IDCONDICION_VUELO" Type="Int32" Nullable="false" />
+          <Property Name="desc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="VUELOS" Relationship="Self.VUELOS_CONDICION_FK" FromRole="CONDICION" ToRole="VUELOS" />
+        </EntityType>
+        <EntityType Name="CONSULTORES">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="Int32" Nullable="false" />
+          <Property Name="RUT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="USUARIOS" Relationship="Self.CONSULTORES_USUARIOS_FK" FromRole="CONSULTORES" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="CREDENCIALES">
+          <Key>
+            <PropertyRef Name="IDCREDENCIAL" />
+          </Key>
+          <Property Name="IDCREDENCIAL" Type="Int32" Nullable="false" />
+          <Property Name="PW" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="USUARIOS_IDUSUARIO" Type="Int32" Nullable="false" />
+          <Property Name="RUT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="USUARIOS" Relationship="Self.CREDENCIALES_USUARIOS_FK" FromRole="CREDENCIALES" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="ESTADO">
+          <Key>
+            <PropertyRef Name="IDESTADO" />
+          </Key>
+          <Property Name="IDESTADO" Type="Int32" Nullable="false" />
+          <Property Name="desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AERONAVES" Relationship="Self.AERONAVES_ESTADO_FK" FromRole="ESTADO" ToRole="AERONAVES" />
+          <NavigationProperty Name="COMPONENTES" Relationship="Self.COMPONENTES_ESTADO_FK" FromRole="ESTADO" ToRole="COMPONENTES" />
+          <NavigationProperty Name="MANTENIMIENTOS" Relationship="Self.MANTENIMIENTOS_ESTADO_FK" FromRole="ESTADO" ToRole="MANTENIMIENTOS" />
+          <NavigationProperty Name="USUARIOS" Relationship="Self.USUARIOS_ESTADO_FK" FromRole="ESTADO" ToRole="USUARIOS" />
+          <NavigationProperty Name="VUELOS" Relationship="Self.VUELOS_ESTADO_FK" FromRole="ESTADO" ToRole="VUELOS" />
+        </EntityType>
+        <EntityType Name="FABRICANTES_AERO">
+          <Key>
+            <PropertyRef Name="IDFABRICANTE" />
+          </Key>
+          <Property Name="IDFABRICANTE" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_FAB" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AERONAVES" Relationship="Self.AERONAVES_FABRICANTES_AERO_FK" FromRole="FABRICANTES_AERO" ToRole="AERONAVES" />
+        </EntityType>
+        <EntityType Name="FALLAS_BBDD">
+          <Key>
+            <PropertyRef Name="IDFALLAS_BBDD" />
+          </Key>
+          <Property Name="IDFALLAS_BBDD" Type="Int32" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Precision="255" Nullable="false" />
+          <Property Name="ERROR" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MANTENIMIENTOS">
+          <Key>
+            <PropertyRef Name="IDMANTENIMIENTO" />
+            <PropertyRef Name="AERONAVES_IDAERONAVE" />
+            <PropertyRef Name="COMPONENTES_IDCOMPONENTE" />
+          </Key>
+          <Property Name="IDMANTENIMIENTO" Type="Int32" Nullable="false" />
+          <Property Name="AERONAVES_IDAERONAVE" Type="Int32" Nullable="false" />
+          <Property Name="ESTADO_IDESTADO" Type="Int32" Nullable="false" />
+          <Property Name="OBS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="COMPONENTES_IDCOMPONENTE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AERONAVES" Relationship="Self.MANTENIMIENTOS_AERONAVES_FK" FromRole="MANTENIMIENTOS" ToRole="AERONAVES" />
+          <NavigationProperty Name="COMPONENTES" Relationship="Self.MANTENIMIENTOS_COMPONENTES_FK" FromRole="MANTENIMIENTOS" ToRole="COMPONENTES" />
+          <NavigationProperty Name="ESTADO" Relationship="Self.MANTENIMIENTOS_ESTADO_FK" FromRole="MANTENIMIENTOS" ToRole="ESTADO" />
+        </EntityType>
+        <EntityType Name="MEDICINAS">
+          <Key>
+            <PropertyRef Name="IDMEDICINA" />
+          </Key>
+          <Property Name="IDMEDICINA" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DOSIS" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PILOTOS" Relationship="Self.MEDICINAS_PILOTOS" FromRole="MEDICINAS" ToRole="PILOTOS" />
+          <Property Name="FECHA_VCTO" Type="DateTime" Precision="6" />
+        </EntityType>
+        <EntityType Name="MODELOS_AERO">
+          <Key>
+            <PropertyRef Name="IDMODELO" />
+          </Key>
+          <Property Name="IDMODELO" Type="Int32" Nullable="false" />
+          <Property Name="MODELO_AERONAVE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AERONAVES" Relationship="Self.AERONAVES_MODELOS_AERO_FK" FromRole="MODELOS_AERO" ToRole="AERONAVES" />
+        </EntityType>
+        <EntityType Name="OPERARIOS">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="Int32" Nullable="false" />
+          <Property Name="RUT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="USUARIOS" Relationship="Self.OPERARIOS_USUARIOS_FK" FromRole="OPERARIOS" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="PILOTOS">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="Int32" Nullable="false" />
+          <Property Name="HORAS_VOLADAS" Type="Int32" Nullable="false" />
+          <Property Name="RUT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="USUARIOS" Relationship="Self.PILOTOS_USUARIOS_FK" FromRole="PILOTOS" ToRole="USUARIOS" />
+          <NavigationProperty Name="MEDICINAS" Relationship="Self.MEDICINAS_PILOTOS" FromRole="PILOTOS" ToRole="MEDICINAS" />
+          <NavigationProperty Name="VUELOS" Relationship="Self.PILOTOS_VUELOS" FromRole="PILOTOS" ToRole="VUELOS" />
+        </EntityType>
+        <EntityType Name="TIPO_AERONAVE">
+          <Key>
+            <PropertyRef Name="IDTIPO_AERONAVE" />
+          </Key>
+          <Property Name="IDTIPO_AERONAVE" Type="Int32" Nullable="false" />
+          <Property Name="desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AERONAVES" Relationship="Self.AERONAVES_TIPO_AERONAVE_FK" FromRole="TIPO_AERONAVE" ToRole="AERONAVES" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="Int32" Nullable="false" />
+          <Property Name="ESTADO_IDESTADO" Type="Int32" Nullable="false" />
+          <Property Name="RUT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NOMBRES" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AP_PATERNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AP_MATERNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DOMICILIO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TEL_CEL" Type="Int64" Nullable="false" />
+          <Property Name="TEL_FIJO" Type="Int32" />
+          <Property Name="CORREO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ADMINISTRADORES" Relationship="Self.ADMINISTRADORES_USUARIOS_FK" FromRole="USUARIOS" ToRole="ADMINISTRADORES" />
+          <NavigationProperty Name="CONSULTORES" Relationship="Self.CONSULTORES_USUARIOS_FK" FromRole="USUARIOS" ToRole="CONSULTORES" />
+          <NavigationProperty Name="CREDENCIALES" Relationship="Self.CREDENCIALES_USUARIOS_FK" FromRole="USUARIOS" ToRole="CREDENCIALES" />
+          <NavigationProperty Name="ESTADO" Relationship="Self.USUARIOS_ESTADO_FK" FromRole="USUARIOS" ToRole="ESTADO" />
+          <NavigationProperty Name="OPERARIOS" Relationship="Self.OPERARIOS_USUARIOS_FK" FromRole="USUARIOS" ToRole="OPERARIOS" />
+          <NavigationProperty Name="PILOTOS" Relationship="Self.PILOTOS_USUARIOS_FK" FromRole="USUARIOS" ToRole="PILOTOS" />
+        </EntityType>
+        <EntityType Name="VUELOS">
+          <Key>
+            <PropertyRef Name="IDVUELO" />
+          </Key>
+          <Property Name="IDVUELO" Type="Int32" Nullable="false" />
+          <Property Name="ESTADO_IDESTADO" Type="Int32" Nullable="false" />
+          <Property Name="AERONAVES_IDAERONAVE" Type="Int32" Nullable="false" />
+          <Property Name="HORAS_ESTIMADAS" Type="Int16" Nullable="false" />
+          <Property Name="MISION" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FECHAHORA_INICIO" Type="DateTime" Precision="255" Nullable="false" />
+          <Property Name="CONDICION_IDCONDICION_VUELO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AERONAVES" Relationship="Self.VUELOS_AERONAVES_FK" FromRole="VUELOS" ToRole="AERONAVES" />
+          <NavigationProperty Name="BITACORAS_VUELOS" Relationship="Self.BITACORAS_VUELOS_VUELOS_FK" FromRole="VUELOS" ToRole="BITACORAS_VUELOS" />
+          <NavigationProperty Name="CONDICION" Relationship="Self.VUELOS_CONDICION_FK" FromRole="VUELOS" ToRole="CONDICION" />
+          <NavigationProperty Name="ESTADO" Relationship="Self.VUELOS_ESTADO_FK" FromRole="VUELOS" ToRole="ESTADO" />
+          <NavigationProperty Name="PILOTOS" Relationship="Self.PILOTOS_VUELOS" FromRole="VUELOS" ToRole="PILOTOS" />
+        </EntityType>
+        <Association Name="ADMINISTRADORES_USUARIOS_FK">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="ADMINISTRADORES" Type="Self.ADMINISTRADORES" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="ADMINISTRADORES">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AERONAVES_ESTADO_FK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+          <End Role="AERONAVES" Type="Self.AERONAVES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="AERONAVES">
+              <PropertyRef Name="ESTADO_IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AERONAVES_FABRICANTES_AERO_FK">
+          <End Role="FABRICANTES_AERO" Type="Self.FABRICANTES_AERO" Multiplicity="1" />
+          <End Role="AERONAVES" Type="Self.AERONAVES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FABRICANTES_AERO">
+              <PropertyRef Name="IDFABRICANTE" />
+            </Principal>
+            <Dependent Role="AERONAVES">
+              <PropertyRef Name="FABRICANTES_AERO_IDFABRICANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AERONAVES_MODELOS_AERO_FK">
+          <End Role="MODELOS_AERO" Type="Self.MODELOS_AERO" Multiplicity="1" />
+          <End Role="AERONAVES" Type="Self.AERONAVES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODELOS_AERO">
+              <PropertyRef Name="IDMODELO" />
+            </Principal>
+            <Dependent Role="AERONAVES">
+              <PropertyRef Name="MODELOS_AERO_IDMODELO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AERONAVES_TIPO_AERONAVE_FK">
+          <End Role="TIPO_AERONAVE" Type="Self.TIPO_AERONAVE" Multiplicity="1" />
+          <End Role="AERONAVES" Type="Self.AERONAVES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_AERONAVE">
+              <PropertyRef Name="IDTIPO_AERONAVE" />
+            </Principal>
+            <Dependent Role="AERONAVES">
+              <PropertyRef Name="TIPO_AERONAVE_IDTIPO_AERONAVE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MANTENIMIENTOS_AERONAVES_FK">
+          <End Role="AERONAVES" Type="Self.AERONAVES" Multiplicity="1" />
+          <End Role="MANTENIMIENTOS" Type="Self.MANTENIMIENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AERONAVES">
+              <PropertyRef Name="IDAERONAVE" />
+            </Principal>
+            <Dependent Role="MANTENIMIENTOS">
+              <PropertyRef Name="AERONAVES_IDAERONAVE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VUELOS_AERONAVES_FK">
+          <End Role="AERONAVES" Type="Self.AERONAVES" Multiplicity="1" />
+          <End Role="VUELOS" Type="Self.VUELOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AERONAVES">
+              <PropertyRef Name="IDAERONAVE" />
+            </Principal>
+            <Dependent Role="VUELOS">
+              <PropertyRef Name="AERONAVES_IDAERONAVE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BITACORAS_VUELOS_VUELOS_FK">
+          <End Role="VUELOS" Type="Self.VUELOS" Multiplicity="1" />
+          <End Role="BITACORAS_VUELOS" Type="Self.BITACORAS_VUELOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VUELOS">
+              <PropertyRef Name="IDVUELO" />
+            </Principal>
+            <Dependent Role="BITACORAS_VUELOS">
+              <PropertyRef Name="VUELOS_IDVUELO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="COMPONENTES_COMPONENTES_FK">
+          <End Role="COMPONENTES" Type="Self.COMPONENTES" Multiplicity="0..1" />
+          <End Role="COMPONENTES1" Type="Self.COMPONENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPONENTES">
+              <PropertyRef Name="IDCOMPONENTE" />
+            </Principal>
+            <Dependent Role="COMPONENTES1">
+              <PropertyRef Name="COMPONENTES_IDCOMPONENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="COMPONENTES_ESTADO_FK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+          <End Role="COMPONENTES" Type="Self.COMPONENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="COMPONENTES">
+              <PropertyRef Name="ESTADO_IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MANTENIMIENTOS_COMPONENTES_FK">
+          <End Role="COMPONENTES" Type="Self.COMPONENTES" Multiplicity="1" />
+          <End Role="MANTENIMIENTOS" Type="Self.MANTENIMIENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPONENTES">
+              <PropertyRef Name="IDCOMPONENTE" />
+            </Principal>
+            <Dependent Role="MANTENIMIENTOS">
+              <PropertyRef Name="COMPONENTES_IDCOMPONENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VUELOS_CONDICION_FK">
+          <End Role="CONDICION" Type="Self.CONDICION" Multiplicity="1" />
+          <End Role="VUELOS" Type="Self.VUELOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONDICION">
+              <PropertyRef Name="IDCONDICION_VUELO" />
+            </Principal>
+            <Dependent Role="VUELOS">
+              <PropertyRef Name="CONDICION_IDCONDICION_VUELO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONSULTORES_USUARIOS_FK">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="CONSULTORES" Type="Self.CONSULTORES" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="CONSULTORES">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CREDENCIALES_USUARIOS_FK">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="CREDENCIALES" Type="Self.CREDENCIALES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="CREDENCIALES">
+              <PropertyRef Name="USUARIOS_IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MANTENIMIENTOS_ESTADO_FK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+          <End Role="MANTENIMIENTOS" Type="Self.MANTENIMIENTOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="MANTENIMIENTOS">
+              <PropertyRef Name="ESTADO_IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIOS_ESTADO_FK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="USUARIOS">
+              <PropertyRef Name="ESTADO_IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VUELOS_ESTADO_FK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+          <End Role="VUELOS" Type="Self.VUELOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="VUELOS">
+              <PropertyRef Name="ESTADO_IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OPERARIOS_USUARIOS_FK">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="OPERARIOS" Type="Self.OPERARIOS" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="OPERARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PILOTOS_USUARIOS_FK">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+          <End Role="PILOTOS" Type="Self.PILOTOS" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="PILOTOS">
+              <PropertyRef Name="IDUSUARIO" />
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MEDICINAS_PILOTOS">
+          <End Role="MEDICINAS" Type="Self.MEDICINAS" Multiplicity="*" />
+          <End Role="PILOTOS" Type="Self.PILOTOS" Multiplicity="*" />
+        </Association>
+        <Association Name="PILOTOS_VUELOS">
+          <End Role="PILOTOS" Type="Self.PILOTOS" Multiplicity="*" />
+          <End Role="VUELOS" Type="Self.VUELOS" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="EscHalconEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADMINISTRADORES" EntityType="Self.ADMINISTRADORES" />
+          <EntitySet Name="AERONAVES" EntityType="Self.AERONAVES" />
+          <EntitySet Name="BITACORAS_VUELOS" EntityType="Self.BITACORAS_VUELOS" />
+          <EntitySet Name="COMPONENTES" EntityType="Self.COMPONENTES" />
+          <EntitySet Name="CONDICION" EntityType="Self.CONDICION" />
+          <EntitySet Name="CONSULTORES" EntityType="Self.CONSULTORES" />
+          <EntitySet Name="CREDENCIALES" EntityType="Self.CREDENCIALES" />
+          <EntitySet Name="ESTADO" EntityType="Self.ESTADO" />
+          <EntitySet Name="FABRICANTES_AERO" EntityType="Self.FABRICANTES_AERO" />
+          <EntitySet Name="FALLAS_BBDD" EntityType="Self.FALLAS_BBDD" />
+          <EntitySet Name="MANTENIMIENTOS" EntityType="Self.MANTENIMIENTOS" />
+          <EntitySet Name="MEDICINAS" EntityType="Self.MEDICINAS" />
+          <EntitySet Name="MODELOS_AERO" EntityType="Self.MODELOS_AERO" />
+          <EntitySet Name="OPERARIOS" EntityType="Self.OPERARIOS" />
+          <EntitySet Name="PILOTOS" EntityType="Self.PILOTOS" />
+          <EntitySet Name="TIPO_AERONAVE" EntityType="Self.TIPO_AERONAVE" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" />
+          <EntitySet Name="VUELOS" EntityType="Self.VUELOS" />
+          <AssociationSet Name="ADMINISTRADORES_USUARIOS_FK" Association="Self.ADMINISTRADORES_USUARIOS_FK">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="ADMINISTRADORES" EntitySet="ADMINISTRADORES" />
+          </AssociationSet>
+          <AssociationSet Name="AERONAVES_ESTADO_FK" Association="Self.AERONAVES_ESTADO_FK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="AERONAVES" EntitySet="AERONAVES" />
+          </AssociationSet>
+          <AssociationSet Name="AERONAVES_FABRICANTES_AERO_FK" Association="Self.AERONAVES_FABRICANTES_AERO_FK">
+            <End Role="FABRICANTES_AERO" EntitySet="FABRICANTES_AERO" />
+            <End Role="AERONAVES" EntitySet="AERONAVES" />
+          </AssociationSet>
+          <AssociationSet Name="AERONAVES_MODELOS_AERO_FK" Association="Self.AERONAVES_MODELOS_AERO_FK">
+            <End Role="MODELOS_AERO" EntitySet="MODELOS_AERO" />
+            <End Role="AERONAVES" EntitySet="AERONAVES" />
+          </AssociationSet>
+          <AssociationSet Name="AERONAVES_TIPO_AERONAVE_FK" Association="Self.AERONAVES_TIPO_AERONAVE_FK">
+            <End Role="TIPO_AERONAVE" EntitySet="TIPO_AERONAVE" />
+            <End Role="AERONAVES" EntitySet="AERONAVES" />
+          </AssociationSet>
+          <AssociationSet Name="MANTENIMIENTOS_AERONAVES_FK" Association="Self.MANTENIMIENTOS_AERONAVES_FK">
+            <End Role="AERONAVES" EntitySet="AERONAVES" />
+            <End Role="MANTENIMIENTOS" EntitySet="MANTENIMIENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="VUELOS_AERONAVES_FK" Association="Self.VUELOS_AERONAVES_FK">
+            <End Role="AERONAVES" EntitySet="AERONAVES" />
+            <End Role="VUELOS" EntitySet="VUELOS" />
+          </AssociationSet>
+          <AssociationSet Name="BITACORAS_VUELOS_VUELOS_FK" Association="Self.BITACORAS_VUELOS_VUELOS_FK">
+            <End Role="VUELOS" EntitySet="VUELOS" />
+            <End Role="BITACORAS_VUELOS" EntitySet="BITACORAS_VUELOS" />
+          </AssociationSet>
+          <AssociationSet Name="COMPONENTES_COMPONENTES_FK" Association="Self.COMPONENTES_COMPONENTES_FK">
+            <End Role="COMPONENTES" EntitySet="COMPONENTES" />
+            <End Role="COMPONENTES1" EntitySet="COMPONENTES" />
+          </AssociationSet>
+          <AssociationSet Name="COMPONENTES_ESTADO_FK" Association="Self.COMPONENTES_ESTADO_FK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="COMPONENTES" EntitySet="COMPONENTES" />
+          </AssociationSet>
+          <AssociationSet Name="MANTENIMIENTOS_COMPONENTES_FK" Association="Self.MANTENIMIENTOS_COMPONENTES_FK">
+            <End Role="COMPONENTES" EntitySet="COMPONENTES" />
+            <End Role="MANTENIMIENTOS" EntitySet="MANTENIMIENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="VUELOS_CONDICION_FK" Association="Self.VUELOS_CONDICION_FK">
+            <End Role="CONDICION" EntitySet="CONDICION" />
+            <End Role="VUELOS" EntitySet="VUELOS" />
+          </AssociationSet>
+          <AssociationSet Name="CONSULTORES_USUARIOS_FK" Association="Self.CONSULTORES_USUARIOS_FK">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="CONSULTORES" EntitySet="CONSULTORES" />
+          </AssociationSet>
+          <AssociationSet Name="CREDENCIALES_USUARIOS_FK" Association="Self.CREDENCIALES_USUARIOS_FK">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="CREDENCIALES" EntitySet="CREDENCIALES" />
+          </AssociationSet>
+          <AssociationSet Name="MANTENIMIENTOS_ESTADO_FK" Association="Self.MANTENIMIENTOS_ESTADO_FK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="MANTENIMIENTOS" EntitySet="MANTENIMIENTOS" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIOS_ESTADO_FK" Association="Self.USUARIOS_ESTADO_FK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="VUELOS_ESTADO_FK" Association="Self.VUELOS_ESTADO_FK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="VUELOS" EntitySet="VUELOS" />
+          </AssociationSet>
+          <AssociationSet Name="OPERARIOS_USUARIOS_FK" Association="Self.OPERARIOS_USUARIOS_FK">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="OPERARIOS" EntitySet="OPERARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="PILOTOS_USUARIOS_FK" Association="Self.PILOTOS_USUARIOS_FK">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="PILOTOS" EntitySet="PILOTOS" />
+          </AssociationSet>
+          <AssociationSet Name="MEDICINAS_PILOTOS" Association="Self.MEDICINAS_PILOTOS">
+            <End Role="MEDICINAS" EntitySet="MEDICINAS" />
+            <End Role="PILOTOS" EntitySet="PILOTOS" />
+          </AssociationSet>
+          <AssociationSet Name="PILOTOS_VUELOS" Association="Self.PILOTOS_VUELOS">
+            <End Role="PILOTOS" EntitySet="PILOTOS" />
+            <End Role="VUELOS" EntitySet="VUELOS" />
+          </AssociationSet>
+          <FunctionImport Name="SP_AGREGAR_PILOTO">
+            <Parameter Name="IN_IDESTADO" Mode="In" Type="Decimal" />
+            <Parameter Name="IN_RUT" Mode="In" Type="String" />
+            <Parameter Name="IN_NOMBRES" Mode="In" Type="String" />
+            <Parameter Name="IN_AP_PATERNO" Mode="In" Type="String" />
+            <Parameter Name="IN_AP_MATERNO" Mode="In" Type="String" />
+            <Parameter Name="IN_DOMICILIO" Mode="In" Type="String" />
+            <Parameter Name="IN_TEL_CEL" Mode="In" Type="Decimal" />
+            <Parameter Name="IN_TEL_FIJO" Mode="In" Type="Decimal" />
+            <Parameter Name="IN_CORREO" Mode="In" Type="String" />
+            <Parameter Name="IN_HORAS_VOLADAS" Mode="In" Type="Decimal" />
+            <Parameter Name="V_PW" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ELIMINAR_PILOTO">
+          <Parameter Name="IN_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LOGIN">
+            <Parameter Name="IN_RUT" Mode="In" Type="String" />
+            <Parameter Name="IN_PW" Mode="In" Type="String" />
+            <Parameter Name="X_TIPO_USER" Mode="Out" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MODIFICAR_PILOTO">
+            <Parameter Name="IN_IDESTADO" Mode="In" Type="Decimal" />
+            <Parameter Name="IN_RUT" Mode="In" Type="String" />
+            <Parameter Name="IN_NOMBRES" Mode="In" Type="String" />
+            <Parameter Name="IN_AP_PATERNO" Mode="In" Type="String" />
+            <Parameter Name="IN_AP_MATERNO" Mode="In" Type="String" />
+            <Parameter Name="IN_DOMICILIO" Mode="In" Type="String" />
+            <Parameter Name="IN_TEL_CEL" Mode="In" Type="Decimal" />
+            <Parameter Name="IN_TEL_FIJO" Mode="In" Type="Decimal" />
+            <Parameter Name="IN_CORREO" Mode="In" Type="String" />
+            <Parameter Name="IN_HORAS_VOLADAS" Mode="In" Type="Decimal" />
+            <Parameter Name="V_PW" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_AGREGAR_ADMINISTRADOR">
+            <Parameter Name="V_RUT" Mode="In" Type="String" />
+            <Parameter Name="V_NOMBRES" Mode="In" Type="String" />
+            <Parameter Name="V_AP_PATERNO" Mode="In" Type="String" />
+            <Parameter Name="V_AP_MATERNO" Mode="In" Type="String" />
+            <Parameter Name="V_DOMICILIO" Mode="In" Type="String" />
+            <Parameter Name="V_TEL_CEL" Mode="In" Type="Decimal" />
+            <Parameter Name="V_TEL_FIJO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CORREO" Mode="In" Type="String" />
+            <Parameter Name="V_PW" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_AGREGAR_BITACORA">
+            <Parameter Name="V_VUELO_IDVUELO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_HORA_INCIDENTE" Mode="In" Type="DateTime" />
+            <Parameter Name="V_DESC" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_AGREGAR_COMPONENTE">
+            <Parameter Name="V_ESTADO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="V_HORAS_USO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_HORAS_MAX_USO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_VECES_USADO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_MAX_USO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_IDCOMPONENTE" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_AGREGAR_CONSULTOR">
+            <Parameter Name="V_RUT" Mode="In" Type="String" />
+            <Parameter Name="V_NOMBRES" Mode="In" Type="String" />
+            <Parameter Name="V_AP_PATERNO" Mode="In" Type="String" />
+            <Parameter Name="V_AP_MATERNO" Mode="In" Type="String" />
+            <Parameter Name="V_DOMICILIO" Mode="In" Type="String" />
+            <Parameter Name="V_TEL_CEL" Mode="In" Type="Decimal" />
+            <Parameter Name="V_TEL_FIJO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CORREO" Mode="In" Type="String" />
+            <Parameter Name="V_PW" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_AGREGAR_MANTENIMIENTO">
+            <Parameter Name="V_AERONAVE" Mode="In" Type="Decimal" />
+            <Parameter Name="V_ESTADO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_OBS" Mode="In" Type="String" />
+            <Parameter Name="V_COMPONENTE" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_AGREGAR_MEDICINA">
+            <Parameter Name="V_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="V_DOSIS" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_AGREGAR_OPERARIO">
+            <Parameter Name="V_ESTADO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_RUT" Mode="In" Type="String" />
+            <Parameter Name="V_NOMBRES" Mode="In" Type="String" />
+            <Parameter Name="V_AP_PATERNO" Mode="In" Type="String" />
+            <Parameter Name="V_AP_MATERNO" Mode="In" Type="String" />
+            <Parameter Name="V_DOMICILIO" Mode="In" Type="String" />
+            <Parameter Name="V_TEL_CEL" Mode="In" Type="Decimal" />
+            <Parameter Name="V_TEL_FIJO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CORREO" Mode="In" Type="String" />
+            <Parameter Name="V_PW" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_AGREGAR_VUELO">
+            <Parameter Name="V_ESTADO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_AERONAVE" Mode="In" Type="Decimal" />
+            <Parameter Name="V_HORAS_ESTIMADAS" Mode="In" Type="Decimal" />
+            <Parameter Name="V_MISION" Mode="In" Type="String" />
+            <Parameter Name="V_FECHA_INICIO" Mode="In" Type="DateTime" />
+            <Parameter Name="V_CONDICION" Mode="In" Type="Decimal" />
+            <Parameter Name="V_PILOTO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_COPILOTO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_RUT_PILOTO" Mode="In" Type="String" />
+            <Parameter Name="V_RUT_COPILOTO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_COMPLETAR_MANTENIMIENTO">
+          <Parameter Name="V_IDMANTENIMIENTO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_COMPLETAR_VUELO">
+            <Parameter Name="V_IDVUELO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_HORAS" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DESACTIVAR_ADMINISTRADOR">
+          <Parameter Name="V_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DESACTIVAR_COMPONENTE">
+          <Parameter Name="V_IDCOMPONENTE" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DESACTIVAR_CONSULTOR">
+          <Parameter Name="V_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DESACTIVAR_OPERARIO">
+          <Parameter Name="V_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ELIMINAR_ADMINISTRADOR">
+          <Parameter Name="V_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ELIMINAR_BITACORA">
+          <Parameter Name="V_IDBITACORA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ELIMINAR_MEDICINA">
+          <Parameter Name="V_IDMEDICINA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTADO_COMPONENTES" />
+          <FunctionImport Name="SP_LISTADO_MANTENCION" />
+          <FunctionImport Name="SP_LISTADO_MEDICINAS" />
+          <FunctionImport Name="SP_LISTADO_OPERARIOS" />
+          <FunctionImport Name="SP_LISTADO_VUELOS" />
+          <FunctionImport Name="SP_LISTAR_ADMINISTRADOR">
+          <Parameter Name="V_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTAR_BITACORAS" />
+          <FunctionImport Name="SP_MODIFICAR_ADM">
+            <Parameter Name="V_NOMBRES" Mode="In" Type="String" />
+            <Parameter Name="V_AP_PATERNO" Mode="In" Type="String" />
+            <Parameter Name="V_AP_MATERNO" Mode="In" Type="String" />
+            <Parameter Name="V_DOMICILIO" Mode="In" Type="String" />
+            <Parameter Name="V_TEL_CEL" Mode="In" Type="Decimal" />
+            <Parameter Name="V_TEL_FIJO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CORREO" Mode="In" Type="String" />
+            <Parameter Name="V_RUT" Mode="In" Type="String" />
+            <Parameter Name="V_PW" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MODIFICAR_BITACORA">
+            <Parameter Name="V_VUELO_IDVUELO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_HORA_INCIDENTE" Mode="In" Type="DateTime" />
+            <Parameter Name="V_DESC" Mode="In" Type="String" />
+            <Parameter Name="V_IDBITACORA_VUELO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MODIFICAR_COMPONENTE">
+            <Parameter Name="V_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="V_HORAS_USO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_HORAS_MAX_USO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_VECES_USADO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_MAX_USO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_COMPONENTE_IDCOMPONENTE" Mode="In" Type="Decimal" />
+            <Parameter Name="V_IDCOMPONENTE" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MODIFICAR_CONSULTOR">
+            <Parameter Name="V_NOMBRES" Mode="In" Type="String" />
+            <Parameter Name="V_AP_PATERNO" Mode="In" Type="String" />
+            <Parameter Name="V_AP_MATERNO" Mode="In" Type="String" />
+            <Parameter Name="V_DOMICILIO" Mode="In" Type="String" />
+            <Parameter Name="V_TEL_CEL" Mode="In" Type="Decimal" />
+            <Parameter Name="V_TEL_FIJO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CORREO" Mode="In" Type="String" />
+            <Parameter Name="V_RUT" Mode="In" Type="String" />
+            <Parameter Name="V_PW" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MODIFICAR_MANTENIMIENTO">
+            <Parameter Name="V_AERONAVE" Mode="In" Type="Decimal" />
+            <Parameter Name="V_ESTADO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_OBS" Mode="In" Type="String" />
+            <Parameter Name="V_COMPONENTE" Mode="In" Type="Decimal" />
+            <Parameter Name="V_IDMANTENIMIENTO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MODIFICAR_MEDICINA">
+            <Parameter Name="V_NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="V_DOSIS" Mode="In" Type="String" />
+            <Parameter Name="V_IDMEDICINA" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MODIFICAR_OPERARIO">
+            <Parameter Name="V_NOMBRES" Mode="In" Type="String" />
+            <Parameter Name="V_AP_PATERNO" Mode="In" Type="String" />
+            <Parameter Name="V_AP_MATERNO" Mode="In" Type="String" />
+            <Parameter Name="V_DOMICILIO" Mode="In" Type="String" />
+            <Parameter Name="V_TEL_CEL" Mode="In" Type="Decimal" />
+            <Parameter Name="V_TEL_FIJO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CORREO" Mode="In" Type="String" />
+            <Parameter Name="V_RUT" Mode="In" Type="String" />
+            <Parameter Name="V_PW" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MODIFICAR_VUELO">
+            <Parameter Name="V_AERONAVE" Mode="In" Type="Decimal" />
+            <Parameter Name="V_HORAS_ESTIMADAS" Mode="In" Type="Decimal" />
+            <Parameter Name="V_MISION" Mode="In" Type="String" />
+            <Parameter Name="V_FECHA_INICIO" Mode="In" Type="DateTime" />
+            <Parameter Name="V_CONDICION" Mode="In" Type="Decimal" />
+            <Parameter Name="V_PILOTO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_RUT_PILOTO" Mode="In" Type="String" />
+            <Parameter Name="V_COPILOTO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_RUT_COPILOTO" Mode="In" Type="String" />
+            <Parameter Name="V_VUELO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BUSCAR_COMPONENTES">
+          <Parameter Name="V_IDCOMPONENTE" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BUSCAR_MANTENCION">
+          <Parameter Name="V_IDMANTENIMIENTO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DESACTIVAR_AERONAVE">
+          <Parameter Name="V_PATENTE" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ELIMINAR_AERONAVE">
+          <Parameter Name="V_ID_AERONAVE" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_INGRESAR_AERONAVE">
+            <Parameter Name="V_TIPO_AERONAVE" Mode="In" Type="Decimal" />
+            <Parameter Name="V_ESTADO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_FABRICANTES" Mode="In" Type="Decimal" />
+            <Parameter Name="V_MODELO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_HORAS_VOLADAS" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CANT_MAX_HORAS" Mode="In" Type="Decimal" />
+            <Parameter Name="V_PATENTE" Mode="In" Type="String" />
+            <Parameter Name="V_ANIO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CANT_MAX_PILOTOS" Mode="In" Type="Decimal" />
+            <Parameter Name="V_FECHA_INSPECCION" Mode="In" Type="DateTime" />
+            <Parameter Name="V_CAP_LITROS" Mode="In" Type="Decimal" />
+            <Parameter Name="V_MOTOR" Mode="In" Type="String" />
+            <Parameter Name="V_RUEDAS" Mode="In" Type="String" />
+            <Parameter Name="V_CANT_HELICES" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CANT_TURBINAS" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTADO_AERONAVES" />
+          <FunctionImport Name="SP_MODIFICAR_AERONAVE">
+            <Parameter Name="V_TIPO_AERONAVE" Mode="In" Type="Decimal" />
+            <Parameter Name="V_ESTADO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_FABRICANTES" Mode="In" Type="Decimal" />
+            <Parameter Name="V_MODELO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_HORAS_VOLADAS" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CANT_MAX_HORAS" Mode="In" Type="Decimal" />
+            <Parameter Name="V_PATENTE" Mode="In" Type="String" />
+            <Parameter Name="V_ANIO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CANT_MAX_PILOTOS" Mode="In" Type="Decimal" />
+            <Parameter Name="V_FECHA_INSPECCION" Mode="In" Type="DateTime" />
+            <Parameter Name="V_CAP_LITROS" Mode="In" Type="Decimal" />
+            <Parameter Name="V_MOTOR" Mode="In" Type="String" />
+            <Parameter Name="V_RUEDAS" Mode="In" Type="String" />
+            <Parameter Name="V_CANT_HELICES" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CANT_TURBINAS" Mode="In" Type="Decimal" />
+            <Parameter Name="V_IDAERONAVE" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BUSCAR_VUELO">
+          <Parameter Name="V_IDVUELO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BUSCAR_PILOTOS_VUELO">
+          <Parameter Name="V_IDVUELO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BUSCAR_AERONAVE">
+          <Parameter Name="V_MATRICULA" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BUSCAR_COPILOTOS_VUELO">
+          <Parameter Name="V_IDVUELO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BUSCAR_PILOTO_VUELO">
+          <Parameter Name="V_IDPILOTO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BUSCAR_PILOTO">
+          <Parameter Name="V_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BUSCAR_CREDENCIALES">
+          <Parameter Name="V_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTADO_PILOTOS" />
+          <FunctionImport Name="SP_BUSCAR_CONSULTOR">
+          <Parameter Name="V_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BUSCAR_OPERADOR">
+          <Parameter Name="V_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ELIMINAR_CONSULTOR">
+          <Parameter Name="IN_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ELIMINAR_OPERADOR">
+          <Parameter Name="IN_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MODIFICAR_USUARIO">
+            <Parameter Name="V_NOMBRES" Mode="In" Type="String" />
+            <Parameter Name="V_AP_PATERNO" Mode="In" Type="String" />
+            <Parameter Name="V_AP_MATERNO" Mode="In" Type="String" />
+            <Parameter Name="V_DOMICILIO" Mode="In" Type="String" />
+            <Parameter Name="V_TEL_CEL" Mode="In" Type="Decimal" />
+            <Parameter Name="V_TEL_FIJO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_CORREO" Mode="In" Type="String" />
+            <Parameter Name="V_RUT" Mode="In" Type="String" />
+            <Parameter Name="V_PW" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_BUSCAR_USUARIO">
+          <Parameter Name="V_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DESACTIVAR_USUARIO">
+          <Parameter Name="V_RUT" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_REPORTE_AERNAVES">
+          <Parameter Name="V_TIPO_AERO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_REPORTE_PILOTOS">
+          <Parameter Name="V_TIPO_AERO" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTADO_PILOTOS1" />
+          <FunctionImport Name="SP_LOGIN_RETORNA_NUMBER">
+            <Parameter Name="IN_RUT" Mode="In" Type="String" />
+            <Parameter Name="IN_PW" Mode="In" Type="String" />
+            <Parameter Name="X_TIPO_USER" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_REPORTE_MANT_AERONAVES" />
+          <FunctionImport Name="SP_REPORTE_MANT_COMPONENTES" />
+          <FunctionImport Name="SP_ALERTA_INSPECCION_ANUAL" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="EscHalconEntities">
+          <EntitySetMapping Name="ADMINISTRADORES">
+            <EntityTypeMapping TypeName="Model.ADMINISTRADORES">
+              <MappingFragment StoreEntitySet="ADMINISTRADORES">
+                <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AERONAVES">
+            <EntityTypeMapping TypeName="Model.AERONAVES">
+              <MappingFragment StoreEntitySet="AERONAVES">
+                <ScalarProperty Name="IDAERONAVE" ColumnName="IDAERONAVE" />
+                <ScalarProperty Name="TIPO_AERONAVE_IDTIPO_AERONAVE" ColumnName="TIPO_AERONAVE_IDTIPO_AERONAVE" />
+                <ScalarProperty Name="ESTADO_IDESTADO" ColumnName="ESTADO_IDESTADO" />
+                <ScalarProperty Name="FABRICANTES_AERO_IDFABRICANTE" ColumnName="FABRICANTES_AERO_IDFABRICANTE" />
+                <ScalarProperty Name="MODELOS_AERO_IDMODELO" ColumnName="MODELOS_AERO_IDMODELO" />
+                <ScalarProperty Name="HORAS_VOLADAS" ColumnName="HORAS_VOLADAS" />
+                <ScalarProperty Name="CANT_MAX_HORAS" ColumnName="CANT_MAX_HORAS" />
+                <ScalarProperty Name="PATENTE" ColumnName="PATENTE" />
+                <ScalarProperty Name="ANIO_FAB" ColumnName="ANIO_FAB" />
+                <ScalarProperty Name="CANT_MAX_PILOTOS" ColumnName="CANT_MAX_PILOTOS" />
+                <ScalarProperty Name="FECHA_INSPECCION_ANUAL" ColumnName="FECHA_INSPECCION_ANUAL" />
+                <ScalarProperty Name="CAP_LITROS" ColumnName="CAP_LITROS" />
+                <ScalarProperty Name="MOTOR" ColumnName="MOTOR" />
+                <ScalarProperty Name="RUEDAS" ColumnName="RUEDAS" />
+                <ScalarProperty Name="CANT_HELICES" ColumnName="CANT_HELICES" />
+                <ScalarProperty Name="CANT_TURBINAS" ColumnName="CANT_TURBINAS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BITACORAS_VUELOS">
+            <EntityTypeMapping TypeName="Model.BITACORAS_VUELOS">
+              <MappingFragment StoreEntitySet="BITACORAS_VUELOS">
+                <ScalarProperty Name="IDBITACORA_VUELO" ColumnName="IDBITACORA_VUELO" />
+                <ScalarProperty Name="VUELOS_IDVUELO" ColumnName="VUELOS_IDVUELO" />
+                <ScalarProperty Name="HORA_INCIDENTE" ColumnName="HORA_INCIDENTE" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPONENTES">
+            <EntityTypeMapping TypeName="Model.COMPONENTES">
+              <MappingFragment StoreEntitySet="COMPONENTES">
+                <ScalarProperty Name="IDCOMPONENTE" ColumnName="IDCOMPONENTE" />
+                <ScalarProperty Name="ESTADO_IDESTADO" ColumnName="ESTADO_IDESTADO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="HORAS_USADO" ColumnName="HORAS_USADO" />
+                <ScalarProperty Name="HORAS_MAX_USO" ColumnName="HORAS_MAX_USO" />
+                <ScalarProperty Name="VECES_USADO" ColumnName="VECES_USADO" />
+                <ScalarProperty Name="MAX_NUM_USOS" ColumnName="MAX_NUM_USOS" />
+                <ScalarProperty Name="COMPONENTES_IDCOMPONENTE" ColumnName="COMPONENTES_IDCOMPONENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONDICION">
+            <EntityTypeMapping TypeName="Model.CONDICION">
+              <MappingFragment StoreEntitySet="CONDICION">
+                <ScalarProperty Name="IDCONDICION_VUELO" ColumnName="IDCONDICION_VUELO" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONSULTORES">
+            <EntityTypeMapping TypeName="Model.CONSULTORES">
+              <MappingFragment StoreEntitySet="CONSULTORES">
+                <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CREDENCIALES">
+            <EntityTypeMapping TypeName="Model.CREDENCIALES">
+              <MappingFragment StoreEntitySet="CREDENCIALES">
+                <ScalarProperty Name="IDCREDENCIAL" ColumnName="IDCREDENCIAL" />
+                <ScalarProperty Name="PW" ColumnName="PW" />
+                <ScalarProperty Name="USUARIOS_IDUSUARIO" ColumnName="USUARIOS_IDUSUARIO" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTADO">
+            <EntityTypeMapping TypeName="Model.ESTADO">
+              <MappingFragment StoreEntitySet="ESTADO">
+                <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FABRICANTES_AERO">
+            <EntityTypeMapping TypeName="Model.FABRICANTES_AERO">
+              <MappingFragment StoreEntitySet="FABRICANTES_AERO">
+                <ScalarProperty Name="IDFABRICANTE" ColumnName="IDFABRICANTE" />
+                <ScalarProperty Name="NOMBRE_FAB" ColumnName="NOMBRE_FAB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FALLAS_BBDD">
+            <EntityTypeMapping TypeName="Model.FALLAS_BBDD">
+              <MappingFragment StoreEntitySet="FALLAS_BBDD">
+                <ScalarProperty Name="IDFALLAS_BBDD" ColumnName="IDFALLAS_BBDD" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="ERROR" ColumnName="ERROR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MANTENIMIENTOS">
+            <EntityTypeMapping TypeName="Model.MANTENIMIENTOS">
+              <MappingFragment StoreEntitySet="MANTENIMIENTOS">
+                <ScalarProperty Name="IDMANTENIMIENTO" ColumnName="IDMANTENIMIENTO" />
+                <ScalarProperty Name="AERONAVES_IDAERONAVE" ColumnName="AERONAVES_IDAERONAVE" />
+                <ScalarProperty Name="ESTADO_IDESTADO" ColumnName="ESTADO_IDESTADO" />
+                <ScalarProperty Name="OBS" ColumnName="OBS" />
+                <ScalarProperty Name="COMPONENTES_IDCOMPONENTE" ColumnName="COMPONENTES_IDCOMPONENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDICINAS">
+            <EntityTypeMapping TypeName="Model.MEDICINAS">
+              <MappingFragment StoreEntitySet="MEDICINAS">
+                <ScalarProperty Name="FECHA_VCTO" ColumnName="FECHA_VCTO" />
+                <ScalarProperty Name="IDMEDICINA" ColumnName="IDMEDICINA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DOSIS" ColumnName="DOSIS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MODELOS_AERO">
+            <EntityTypeMapping TypeName="Model.MODELOS_AERO">
+              <MappingFragment StoreEntitySet="MODELOS_AERO">
+                <ScalarProperty Name="IDMODELO" ColumnName="IDMODELO" />
+                <ScalarProperty Name="MODELO_AERONAVE" ColumnName="MODELO_AERONAVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OPERARIOS">
+            <EntityTypeMapping TypeName="Model.OPERARIOS">
+              <MappingFragment StoreEntitySet="OPERARIOS">
+                <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PILOTOS">
+            <EntityTypeMapping TypeName="Model.PILOTOS">
+              <MappingFragment StoreEntitySet="PILOTOS">
+                <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+                <ScalarProperty Name="HORAS_VOLADAS" ColumnName="HORAS_VOLADAS" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_AERONAVE">
+            <EntityTypeMapping TypeName="Model.TIPO_AERONAVE">
+              <MappingFragment StoreEntitySet="TIPO_AERONAVE">
+                <ScalarProperty Name="IDTIPO_AERONAVE" ColumnName="IDTIPO_AERONAVE" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIOS">
+            <EntityTypeMapping TypeName="Model.USUARIOS">
+              <MappingFragment StoreEntitySet="USUARIOS">
+                <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+                <ScalarProperty Name="ESTADO_IDESTADO" ColumnName="ESTADO_IDESTADO" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+                <ScalarProperty Name="AP_PATERNO" ColumnName="AP_PATERNO" />
+                <ScalarProperty Name="AP_MATERNO" ColumnName="AP_MATERNO" />
+                <ScalarProperty Name="DOMICILIO" ColumnName="DOMICILIO" />
+                <ScalarProperty Name="TEL_CEL" ColumnName="TEL_CEL" />
+                <ScalarProperty Name="TEL_FIJO" ColumnName="TEL_FIJO" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VUELOS">
+            <EntityTypeMapping TypeName="Model.VUELOS">
+              <MappingFragment StoreEntitySet="VUELOS">
+                <ScalarProperty Name="IDVUELO" ColumnName="IDVUELO" />
+                <ScalarProperty Name="ESTADO_IDESTADO" ColumnName="ESTADO_IDESTADO" />
+                <ScalarProperty Name="AERONAVES_IDAERONAVE" ColumnName="AERONAVES_IDAERONAVE" />
+                <ScalarProperty Name="HORAS_ESTIMADAS" ColumnName="HORAS_ESTIMADAS" />
+                <ScalarProperty Name="MISION" ColumnName="MISION" />
+                <ScalarProperty Name="FECHAHORA_INICIO" ColumnName="FECHAHORA_INICIO" />
+                <ScalarProperty Name="CONDICION_IDCONDICION_VUELO" ColumnName="CONDICION_IDCONDICION_VUELO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="MEDICINAS_PILOTOS" TypeName="Model.MEDICINAS_PILOTOS" StoreEntitySet="MEDICINAS_PILOTOS">
+            <EndProperty Name="MEDICINAS">
+              <ScalarProperty Name="IDMEDICINA" ColumnName="MEDICINAS_IDMEDICINA" />
+            </EndProperty>
+            <EndProperty Name="PILOTOS">
+              <ScalarProperty Name="IDUSUARIO" ColumnName="PILOTOS_IDUSUARIO" />
+              <ScalarProperty Name="RUT" ColumnName="PILOTOS_RUT" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="PILOTOS_VUELOS" TypeName="Model.PILOTOS_VUELOS" StoreEntitySet="PILOTOS_VUELOS">
+            <EndProperty Name="PILOTOS">
+              <ScalarProperty Name="IDUSUARIO" ColumnName="PILOTOS_IDUSUARIO" />
+              <ScalarProperty Name="RUT" ColumnName="PILOTOS_RUT" />
+            </EndProperty>
+            <EndProperty Name="VUELOS">
+              <ScalarProperty Name="IDVUELO" ColumnName="VUELOS_IDVUELO" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="SP_AGREGAR_PILOTO" FunctionName="Model.Store.SP_AGREGAR_PILOTO" />
+          <FunctionImportMapping FunctionImportName="SP_ELIMINAR_PILOTO" FunctionName="Model.Store.SP_ELIMINAR_PILOTO" />
+          <FunctionImportMapping FunctionImportName="SP_LOGIN" FunctionName="Model.Store.SP_LOGIN" />
+          <FunctionImportMapping FunctionImportName="SP_MODIFICAR_PILOTO" FunctionName="Model.Store.SP_MODIFICAR_PILOTO" />
+          <FunctionImportMapping FunctionImportName="SP_AGREGAR_ADMINISTRADOR" FunctionName="Model.Store.SP_AGREGAR_ADMINISTRADOR" />
+          <FunctionImportMapping FunctionImportName="SP_AGREGAR_BITACORA" FunctionName="Model.Store.SP_AGREGAR_BITACORA" />
+          <FunctionImportMapping FunctionImportName="SP_AGREGAR_COMPONENTE" FunctionName="Model.Store.SP_AGREGAR_COMPONENTE" />
+          <FunctionImportMapping FunctionImportName="SP_AGREGAR_CONSULTOR" FunctionName="Model.Store.SP_AGREGAR_CONSULTOR" />
+          <FunctionImportMapping FunctionImportName="SP_AGREGAR_MANTENIMIENTO" FunctionName="Model.Store.SP_AGREGAR_MANTENIMIENTO" />
+          <FunctionImportMapping FunctionImportName="SP_AGREGAR_MEDICINA" FunctionName="Model.Store.SP_AGREGAR_MEDICINA" />
+          <FunctionImportMapping FunctionImportName="SP_AGREGAR_OPERARIO" FunctionName="Model.Store.SP_AGREGAR_OPERARIO" />
+          <FunctionImportMapping FunctionImportName="SP_AGREGAR_VUELO" FunctionName="Model.Store.SP_AGREGAR_VUELO" />
+          <FunctionImportMapping FunctionImportName="SP_COMPLETAR_MANTENIMIENTO" FunctionName="Model.Store.SP_COMPLETAR_MANTENIMIENTO" />
+          <FunctionImportMapping FunctionImportName="SP_COMPLETAR_VUELO" FunctionName="Model.Store.SP_COMPLETAR_VUELO" />
+          <FunctionImportMapping FunctionImportName="SP_DESACTIVAR_ADMINISTRADOR" FunctionName="Model.Store.SP_DESACTIVAR_ADMINISTRADOR" />
+          <FunctionImportMapping FunctionImportName="SP_DESACTIVAR_COMPONENTE" FunctionName="Model.Store.SP_DESACTIVAR_COMPONENTE" />
+          <FunctionImportMapping FunctionImportName="SP_DESACTIVAR_CONSULTOR" FunctionName="Model.Store.SP_DESACTIVAR_CONSULTOR" />
+          <FunctionImportMapping FunctionImportName="SP_DESACTIVAR_OPERARIO" FunctionName="Model.Store.SP_DESACTIVAR_OPERARIO" />
+          <FunctionImportMapping FunctionImportName="SP_ELIMINAR_ADMINISTRADOR" FunctionName="Model.Store.SP_ELIMINAR_ADMINISTRADOR" />
+          <FunctionImportMapping FunctionImportName="SP_ELIMINAR_BITACORA" FunctionName="Model.Store.SP_ELIMINAR_BITACORA" />
+          <FunctionImportMapping FunctionImportName="SP_ELIMINAR_MEDICINA" FunctionName="Model.Store.SP_ELIMINAR_MEDICINA" />
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_COMPONENTES" FunctionName="Model.Store.SP_LISTADO_COMPONENTES" />
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_MANTENCION" FunctionName="Model.Store.SP_LISTADO_MANTENCION" />
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_MEDICINAS" FunctionName="Model.Store.SP_LISTADO_MEDICINAS" />
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_OPERARIOS" FunctionName="Model.Store.SP_LISTADO_OPERARIOS" />
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_VUELOS" FunctionName="Model.Store.SP_LISTADO_VUELOS" />
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_ADMINISTRADOR" FunctionName="Model.Store.SP_LISTAR_ADMINISTRADOR" />
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_BITACORAS" FunctionName="Model.Store.SP_LISTAR_BITACORAS" />
+          <FunctionImportMapping FunctionImportName="SP_MODIFICAR_ADM" FunctionName="Model.Store.SP_MODIFICAR_ADM" />
+          <FunctionImportMapping FunctionImportName="SP_MODIFICAR_BITACORA" FunctionName="Model.Store.SP_MODIFICAR_BITACORA" />
+          <FunctionImportMapping FunctionImportName="SP_MODIFICAR_COMPONENTE" FunctionName="Model.Store.SP_MODIFICAR_COMPONENTE" />
+          <FunctionImportMapping FunctionImportName="SP_MODIFICAR_CONSULTOR" FunctionName="Model.Store.SP_MODIFICAR_CONSULTOR" />
+          <FunctionImportMapping FunctionImportName="SP_MODIFICAR_MANTENIMIENTO" FunctionName="Model.Store.SP_MODIFICAR_MANTENIMIENTO" />
+          <FunctionImportMapping FunctionImportName="SP_MODIFICAR_MEDICINA" FunctionName="Model.Store.SP_MODIFICAR_MEDICINA" />
+          <FunctionImportMapping FunctionImportName="SP_MODIFICAR_OPERARIO" FunctionName="Model.Store.SP_MODIFICAR_OPERARIO" />
+          <FunctionImportMapping FunctionImportName="SP_MODIFICAR_VUELO" FunctionName="Model.Store.SP_MODIFICAR_VUELO" />
+          <FunctionImportMapping FunctionImportName="SP_BUSCAR_COMPONENTES" FunctionName="Model.Store.SP_BUSCAR_COMPONENTES" />
+          <FunctionImportMapping FunctionImportName="SP_BUSCAR_MANTENCION" FunctionName="Model.Store.SP_BUSCAR_MANTENCION" />
+          <FunctionImportMapping FunctionImportName="SP_DESACTIVAR_AERONAVE" FunctionName="Model.Store.SP_DESACTIVAR_AERONAVE" />
+          <FunctionImportMapping FunctionImportName="SP_ELIMINAR_AERONAVE" FunctionName="Model.Store.SP_ELIMINAR_AERONAVE" />
+          <FunctionImportMapping FunctionImportName="SP_INGRESAR_AERONAVE" FunctionName="Model.Store.SP_INGRESAR_AERONAVE" />
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_AERONAVES" FunctionName="Model.Store.SP_LISTADO_AERONAVES" />
+          <FunctionImportMapping FunctionImportName="SP_MODIFICAR_AERONAVE" FunctionName="Model.Store.SP_MODIFICAR_AERONAVE" />
+          <FunctionImportMapping FunctionImportName="SP_BUSCAR_VUELO" FunctionName="Model.Store.SP_BUSCAR_VUELO" />
+          <FunctionImportMapping FunctionImportName="SP_BUSCAR_PILOTOS_VUELO" FunctionName="Model.Store.SP_BUSCAR_PILOTOS_VUELO" />
+          <FunctionImportMapping FunctionImportName="SP_BUSCAR_AERONAVE" FunctionName="Model.Store.SP_BUSCAR_AERONAVE" />
+          <FunctionImportMapping FunctionImportName="SP_BUSCAR_COPILOTOS_VUELO" FunctionName="Model.Store.SP_BUSCAR_COPILOTOS_VUELO" />
+          <FunctionImportMapping FunctionImportName="SP_BUSCAR_PILOTO_VUELO" FunctionName="Model.Store.SP_BUSCAR_PILOTO_VUELO" />
+          <FunctionImportMapping FunctionImportName="SP_BUSCAR_PILOTO" FunctionName="Model.Store.SP_BUSCAR_PILOTO" />
+          <FunctionImportMapping FunctionImportName="SP_BUSCAR_CREDENCIALES" FunctionName="Model.Store.SP_BUSCAR_CREDENCIALES" />
+          <FunctionImportMapping FunctionImportName="SP_BUSCAR_CONSULTOR" FunctionName="Model.Store.SP_BUSCAR_CONSULTOR" />
+          <FunctionImportMapping FunctionImportName="SP_BUSCAR_OPERADOR" FunctionName="Model.Store.SP_BUSCAR_OPERADOR" />
+          <FunctionImportMapping FunctionImportName="SP_ELIMINAR_CONSULTOR" FunctionName="Model.Store.SP_ELIMINAR_CONSULTOR" />
+          <FunctionImportMapping FunctionImportName="SP_ELIMINAR_OPERADOR" FunctionName="Model.Store.SP_ELIMINAR_OPERADOR" />
+          <FunctionImportMapping FunctionImportName="SP_MODIFICAR_USUARIO" FunctionName="Model.Store.SP_MODIFICAR_USUARIO" />
+          <FunctionImportMapping FunctionImportName="SP_BUSCAR_USUARIO" FunctionName="Model.Store.SP_BUSCAR_USUARIO" />
+          <FunctionImportMapping FunctionImportName="SP_DESACTIVAR_USUARIO" FunctionName="Model.Store.SP_DESACTIVAR_USUARIO" />
+          <FunctionImportMapping FunctionImportName="SP_REPORTE_AERNAVES" FunctionName="Model.Store.SP_REPORTE_AERNAVES" />
+          <FunctionImportMapping FunctionImportName="SP_REPORTE_PILOTOS" FunctionName="Model.Store.SP_REPORTE_PILOTOS" />
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_PILOTOS1" FunctionName="Model.Store.SP_LISTADO_PILOTOS" />
+          <FunctionImportMapping FunctionImportName="SP_LOGIN_RETORNA_NUMBER" FunctionName="Model.Store.SP_LOGIN_RETORNA_NUMBER" />
+          <FunctionImportMapping FunctionImportName="SP_REPORTE_MANT_AERONAVES" FunctionName="Model.Store.SP_REPORTE_MANT_AERONAVES" />
+          <FunctionImportMapping FunctionImportName="SP_REPORTE_MANT_COMPONENTES" FunctionName="Model.Store.SP_REPORTE_MANT_COMPONENTES" />
+          <FunctionImportMapping FunctionImportName="SP_ALERTA_INSPECCION_ANUAL" FunctionName="Model.Store.SP_ALERTA_INSPECCION_ANUAL" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

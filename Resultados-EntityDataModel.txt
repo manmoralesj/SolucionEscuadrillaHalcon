@@ -1,0 +1,39 @@
+﻿Archivo de modelo generado: Model1.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:01.4194040.
+La generación del modelo tardó 00:00:02.7079036.
+Archivo de modelo generado: Model1.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:00.6150583.
+La generación del modelo tardó 00:00:00.4139278.
+Archivo de modelo generado: Model1.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:01.0587508.
+La generación del modelo tardó 00:00:00.5325085.
+Archivo de modelo generado: Model1.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:00.6189681.
+La generación del modelo tardó 00:00:00.3844115.
+Archivo de modelo generado: Model1.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:00.6015605.
+La generación del modelo tardó 00:00:00.3359351.
+Archivo de modelo generado: Model1.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:00.5984557.
+La generación del modelo tardó 00:00:00.3942991.
+Archivo de modelo generado: Model1.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:00.5427485.
+La generación del modelo tardó 00:00:00.3265099.
+Archivo de modelo generado: Model1.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:00.5750111.
+La generación del modelo tardó 00:00:00.3669998.
+Archivo de modelo generado: Model1.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:00.5927580.
+La generación del modelo tardó 00:00:00.3682174.
+Archivo de modelo generado: Model1.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:00.6224984.
+La generación del modelo tardó 00:00:00.3710478.
+Archivo de modelo generado: Model1.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:01.2343695.
+La generación del modelo tardó 00:00:00.3830302.
+Archivo de modelo generado: Model1.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:02.0647106.
+La generación del modelo tardó 00:00:01.1936215.
+Archivo de modelo generado: Model1.edmx.
+La carga de los metadatos desde la base de datos tardó 00:00:00.7484398.
+La generación del modelo tardó 00:00:00.3835840.

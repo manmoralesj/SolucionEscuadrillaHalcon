@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{800B354D-AAAA-4C1F-B815-7BFD10F8B502}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CapaPresentacion</RootNamespace>
+    <AssemblyName>CapaPresentacion</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CloudrailSI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Gmail.Api.1.0.7\lib\CloudrailSI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Oracle.DataAccess, Version=2.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\ServiceReferenceDGAC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetAeronaves.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetAeronaves.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetAlertaMantenimiento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetAlertaMantenimiento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetComponentes.cs">
+      <DependentUpon>DataSetComponentes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetComponentes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetComponentes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetCondicion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCondicion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetFabricantes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetFabricantes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetMantAeronave.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetMantAeronave.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetMantComponente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetMantComponente.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetMantenimientoAeronaves.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetMantenimientoAeronaves.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetMantenimientos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetMantenimientos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetModelos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetModelos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetPilotos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPilotos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetPilotosReporte.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPilotosReporte.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetReporteAeronaves.cs">
+      <DependentUpon>DataSetReporteAeronaves.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetReporteAeronaves.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetReporteAeronaves.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetReportePilotos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetReportePilotos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReporteMantenimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReporteMantenimientos.Designer.cs">
+      <DependentUpon>FormReporteMantenimientos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportePilotos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportePilotos.Designer.cs">
+      <DependentUpon>FormReportePilotos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormValidarLicencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormValidarLicencias.Designer.cs">
+      <DependentUpon>FormValidarLicencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormValidarMultas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormValidarMultas.Designer.cs">
+      <DependentUpon>FormValidarMultas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_AgregarComponente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AgregarComponente.Designer.cs">
+      <DependentUpon>Form_AgregarComponente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_AgregarConsultor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AgregarConsultor.Designer.cs">
+      <DependentUpon>Form_AgregarConsultor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_AgregarMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AgregarMantenimiento.Designer.cs">
+      <DependentUpon>Form_AgregarMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_AgregarOperador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AgregarOperador.Designer.cs">
+      <DependentUpon>Form_AgregarOperador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_AgregarPiloto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AgregarPiloto.Designer.cs">
+      <DependentUpon>Form_AgregarPiloto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_AgregarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AgregarUsuario.Designer.cs">
+      <DependentUpon>Form_AgregarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_AlertaMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AlertaMantenimiento.Designer.cs">
+      <DependentUpon>Form_AlertaMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_CompletarVuelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CompletarVuelo.Designer.cs">
+      <DependentUpon>Form_CompletarVuelo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_EliminarAeronave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_EliminarAeronave.Designer.cs">
+      <DependentUpon>Form_EliminarAeronave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_EliminarComponente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_EliminarComponente.Designer.cs">
+      <DependentUpon>Form_EliminarComponente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_CompletarMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CompletarMantenimiento.Designer.cs">
+      <DependentUpon>Form_CompletarMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_EliminarPiloto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_EliminarPiloto.Designer.cs">
+      <DependentUpon>Form_EliminarPiloto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_EliminarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_EliminarUsuario.Designer.cs">
+      <DependentUpon>Form_EliminarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_GenerarVuelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_GenerarVuelo.Designer.cs">
+      <DependentUpon>Form_GenerarVuelo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_IngresarAeronave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_IngresarAeronave.Designer.cs">
+      <DependentUpon>Form_IngresarAeronave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ListarPiloto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ListarPiloto.Designer.cs">
+      <DependentUpon>Form_ListarPiloto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ListarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ListarUsuarios.Designer.cs">
+      <DependentUpon>Form_ListarUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Login.Designer.cs">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ModificarAeronave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ModificarAeronave.Designer.cs">
+      <DependentUpon>Form_ModificarAeronave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ModificarComponente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ModificarComponente.Designer.cs">
+      <DependentUpon>Form_ModificarComponente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ModificarMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ModificarMantenimiento.Designer.cs">
+      <DependentUpon>Form_ModificarMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ModificarPiloto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ModificarPiloto.Designer.cs">
+      <DependentUpon>Form_ModificarPiloto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ModificarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ModificarUsuario.Designer.cs">
+      <DependentUpon>Form_ModificarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ModificarVuelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ModificarVuelo.Designer.cs">
+      <DependentUpon>Form_ModificarVuelo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ReporteAeronaves.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ReporteAeronaves.Designer.cs">
+      <DependentUpon>Form_ReporteAeronaves.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReporteMantenimientos.resx">
+      <DependentUpon>FormReporteMantenimientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportePilotos.resx">
+      <DependentUpon>FormReportePilotos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValidarLicencias.resx">
+      <DependentUpon>FormValidarLicencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValidarMultas.resx">
+      <DependentUpon>FormValidarMultas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AgregarComponente.resx">
+      <DependentUpon>Form_AgregarComponente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AgregarConsultor.resx">
+      <DependentUpon>Form_AgregarConsultor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AgregarMantenimiento.resx">
+      <DependentUpon>Form_AgregarMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AgregarOperador.resx">
+      <DependentUpon>Form_AgregarOperador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AgregarPiloto.resx">
+      <DependentUpon>Form_AgregarPiloto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AgregarUsuario.resx">
+      <DependentUpon>Form_AgregarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AlertaMantenimiento.resx">
+      <DependentUpon>Form_AlertaMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_CompletarVuelo.resx">
+      <DependentUpon>Form_CompletarVuelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_EliminarAeronave.resx">
+      <DependentUpon>Form_EliminarAeronave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_EliminarComponente.resx">
+      <DependentUpon>Form_EliminarComponente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_CompletarMantenimiento.resx">
+      <DependentUpon>Form_CompletarMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_EliminarPiloto.resx">
+      <DependentUpon>Form_EliminarPiloto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_EliminarUsuario.resx">
+      <DependentUpon>Form_EliminarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_GenerarVuelo.resx">
+      <DependentUpon>Form_GenerarVuelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_IngresarAeronave.resx">
+      <DependentUpon>Form_IngresarAeronave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ListarPiloto.resx">
+      <DependentUpon>Form_ListarPiloto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ListarUsuarios.resx">
+      <DependentUpon>Form_ListarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Login.resx">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ModificarAeronave.resx">
+      <DependentUpon>Form_ModificarAeronave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ModificarComponente.resx">
+      <DependentUpon>Form_ModificarComponente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ModificarMantenimiento.resx">
+      <DependentUpon>Form_ModificarMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ModificarPiloto.resx">
+      <DependentUpon>Form_ModificarPiloto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ModificarUsuario.resx">
+      <DependentUpon>Form_ModificarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ModificarVuelo.resx">
+      <DependentUpon>Form_ModificarVuelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ReporteAeronaves.resx">
+      <DependentUpon>Form_ReporteAeronaves.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ReportePilotos.rdlc" />
+    <EmbeddedResource Include="Reporte_Aeronaves.rdlc" />
+    <EmbeddedResource Include="Reporte_Mantenimiento_Aer.rdlc" />
+    <EmbeddedResource Include="Reporte_Mantenimiento_Comp.rdlc" />
+    <None Include="Connected Services\ServiceReferenceDGAC\CapaPresentacion.ServiceReferenceDGAC.AeronaveByPatenteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDGAC\CapaPresentacion.ServiceReferenceDGAC.AeronavesByFechaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDGAC\CapaPresentacion.ServiceReferenceDGAC.AeronavesListarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDGAC\CapaPresentacion.ServiceReferenceDGAC.clAeronave.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDGAC\CapaPresentacion.ServiceReferenceDGAC.clLicencia.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDGAC\CapaPresentacion.ServiceReferenceDGAC.clMulta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDGAC\CapaPresentacion.ServiceReferenceDGAC.existeLicenciaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDGAC\CapaPresentacion.ServiceReferenceDGAC.fechaAeronavegabilidad_por_patenteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDGAC\CapaPresentacion.ServiceReferenceDGAC.LicenciasByRutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDGAC\CapaPresentacion.ServiceReferenceDGAC.MultasByRutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDGAC\CapaPresentacion.ServiceReferenceDGAC.validarAeronaveByPatenteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDGAC\CapaPresentacion.ServiceReferenceDGAC.validarMultasbyRutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDGAC\webservice_dgac.wsdl" />
+    <None Include="Connected Services\ServiceReferenceDGAC\webservice_dgac.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetAeronaves.xsc">
+      <DependentUpon>DataSetAeronaves.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetAeronaves.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetAeronaves.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetAeronaves.xss">
+      <DependentUpon>DataSetAeronaves.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetAlertaMantenimiento.xsc">
+      <DependentUpon>DataSetAlertaMantenimiento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetAlertaMantenimiento.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetAlertaMantenimiento.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetAlertaMantenimiento.xss">
+      <DependentUpon>DataSetAlertaMantenimiento.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetComponentes.xsc">
+      <DependentUpon>DataSetComponentes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetComponentes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetComponentes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetComponentes.xss">
+      <DependentUpon>DataSetComponentes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCondicion.xsc">
+      <DependentUpon>DataSetCondicion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCondicion.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCondicion.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetCondicion.xss">
+      <DependentUpon>DataSetCondicion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetFabricantes.xsc">
+      <DependentUpon>DataSetFabricantes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetFabricantes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetFabricantes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetFabricantes.xss">
+      <DependentUpon>DataSetFabricantes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetMantAeronave.xsc">
+      <DependentUpon>DataSetMantAeronave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetMantAeronave.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetMantAeronave.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetMantAeronave.xss">
+      <DependentUpon>DataSetMantAeronave.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetMantComponente.xsc">
+      <DependentUpon>DataSetMantComponente.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetMantComponente.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetMantComponente.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetMantComponente.xss">
+      <DependentUpon>DataSetMantComponente.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetMantenimientoAeronaves.xsc">
+      <DependentUpon>DataSetMantenimientoAeronaves.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetMantenimientoAeronaves.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetMantenimientoAeronaves.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetMantenimientoAeronaves.xss">
+      <DependentUpon>DataSetMantenimientoAeronaves.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetMantenimientos.xsc">
+      <DependentUpon>DataSetMantenimientos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetMantenimientos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetMantenimientos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetMantenimientos.xss">
+      <DependentUpon>DataSetMantenimientos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetModelos.xsc">
+      <DependentUpon>DataSetModelos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetModelos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetModelos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetModelos.xss">
+      <DependentUpon>DataSetModelos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPilotos.xsc">
+      <DependentUpon>DataSetPilotos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPilotos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPilotos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetPilotos.xss">
+      <DependentUpon>DataSetPilotos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPilotosReporte.xsc">
+      <DependentUpon>DataSetPilotosReporte.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPilotosReporte.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPilotosReporte.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetPilotosReporte.xss">
+      <DependentUpon>DataSetPilotosReporte.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetReporteAeronaves.xsc">
+      <DependentUpon>DataSetReporteAeronaves.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetReporteAeronaves.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetReporteAeronaves.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetReporteAeronaves.xss">
+      <DependentUpon>DataSetReporteAeronaves.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetReportePilotos.xsc">
+      <DependentUpon>DataSetReportePilotos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetReportePilotos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetReportePilotos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetReportePilotos.xss">
+      <DependentUpon>DataSetReportePilotos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetUsuarios.xsc">
+      <DependentUpon>DataSetUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetUsuarios.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetUsuarios.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetUsuarios.xss">
+      <DependentUpon>DataSetUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaDALC\CapaDALC.csproj">
+      <Project>{4da050b5-c891-40d5-9411-0b38056e4c5d}</Project>
+      <Name>CapaDALC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{d33f6656-9ce4-45c7-8046-34e1d1186c60}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceReferenceDGAC\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReferenceDGAC\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReferenceDGAC\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReferenceDGAC\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

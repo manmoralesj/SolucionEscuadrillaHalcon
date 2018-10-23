@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws/" targetNamespace="http://ws/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="AeronaveByPatente" type="tns:AeronaveByPatente" />
+  <xs:element name="AeronaveByPatenteResponse" type="tns:AeronaveByPatenteResponse" />
+  <xs:element name="AeronavesByFecha" type="tns:AeronavesByFecha" />
+  <xs:element name="AeronavesByFechaResponse" type="tns:AeronavesByFechaResponse" />
+  <xs:element name="AeronavesListar" type="tns:AeronavesListar" />
+  <xs:element name="AeronavesListarResponse" type="tns:AeronavesListarResponse" />
+  <xs:element name="LicenciasByRut" type="tns:LicenciasByRut" />
+  <xs:element name="LicenciasByRutResponse" type="tns:LicenciasByRutResponse" />
+  <xs:element name="MultasByRut" type="tns:MultasByRut" />
+  <xs:element name="MultasByRutResponse" type="tns:MultasByRutResponse" />
+  <xs:element name="existeLicencia" type="tns:existeLicencia" />
+  <xs:element name="existeLicenciaResponse" type="tns:existeLicenciaResponse" />
+  <xs:element name="fechaAeronavegabilidad_por_patente" type="tns:fechaAeronavegabilidad_por_patente" />
+  <xs:element name="fechaAeronavegabilidad_por_patenteResponse" type="tns:fechaAeronavegabilidad_por_patenteResponse" />
+  <xs:element name="validarAeronaveByPatente" type="tns:validarAeronaveByPatente" />
+  <xs:element name="validarAeronaveByPatenteResponse" type="tns:validarAeronaveByPatenteResponse" />
+  <xs:element name="validarMultasbyRut" type="tns:validarMultasbyRut" />
+  <xs:element name="validarMultasbyRutResponse" type="tns:validarMultasbyRutResponse" />
+  <xs:complexType name="LicenciasByRut">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="rut" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LicenciasByRutResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:clLicencia" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="clLicencia">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+      <xs:element name="nro_licencia" type="xs:int" />
+      <xs:element minOccurs="0" name="rut" type="xs:string" />
+      <xs:element minOccurs="0" name="tipo_aeronave" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validarMultasbyRut">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="rut" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validarMultasbyRutResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AeronaveByPatente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="patente" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AeronaveByPatenteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:clAeronave" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="clAeronave">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fecha_aeronavegabilidad" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="patente" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="existeLicencia">
+    <xs:sequence>
+      <xs:element name="nro_licencia" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="existeLicenciaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MultasByRut">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="rut" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MultasByRutResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:clMulta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="clMulta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="desc" type="xs:string" />
+      <xs:element minOccurs="0" name="es_invalidante" type="xs:string" />
+      <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="rut" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AeronavesByFecha">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fecha" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AeronavesByFechaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:clAeronave" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AeronavesListar">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="AeronavesListarResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:clAeronave" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validarAeronaveByPatente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="patente" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validarAeronaveByPatenteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fechaAeronavegabilidad_por_patente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="patente" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fechaAeronavegabilidad_por_patenteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="webservice_dgac" targetNamespace="http://ws/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8081/dgac_ws/webservice_dgac?xsd=1" namespace="http://ws/" />
+    </xsd:schema>
+  </types>
+  <message name="MultasByRut">
+    <part name="parameters" element="tns:MultasByRut" />
+  </message>
+  <message name="MultasByRutResponse">
+    <part name="parameters" element="tns:MultasByRutResponse" />
+  </message>
+  <message name="AeronavesByFecha">
+    <part name="parameters" element="tns:AeronavesByFecha" />
+  </message>
+  <message name="AeronavesByFechaResponse">
+    <part name="parameters" element="tns:AeronavesByFechaResponse" />
+  </message>
+  <message name="LicenciasByRut">
+    <part name="parameters" element="tns:LicenciasByRut" />
+  </message>
+  <message name="LicenciasByRutResponse">
+    <part name="parameters" element="tns:LicenciasByRutResponse" />
+  </message>
+  <message name="AeronavesListar">
+    <part name="parameters" element="tns:AeronavesListar" />
+  </message>
+  <message name="AeronavesListarResponse">
+    <part name="parameters" element="tns:AeronavesListarResponse" />
+  </message>
+  <message name="existeLicencia">
+    <part name="parameters" element="tns:existeLicencia" />
+  </message>
+  <message name="existeLicenciaResponse">
+    <part name="parameters" element="tns:existeLicenciaResponse" />
+  </message>
+  <message name="validarMultasbyRut">
+    <part name="parameters" element="tns:validarMultasbyRut" />
+  </message>
+  <message name="validarMultasbyRutResponse">
+    <part name="parameters" element="tns:validarMultasbyRutResponse" />
+  </message>
+  <message name="AeronaveByPatente">
+    <part name="parameters" element="tns:AeronaveByPatente" />
+  </message>
+  <message name="AeronaveByPatenteResponse">
+    <part name="parameters" element="tns:AeronaveByPatenteResponse" />
+  </message>
+  <message name="validarAeronaveByPatente">
+    <part name="parameters" element="tns:validarAeronaveByPatente" />
+  </message>
+  <message name="validarAeronaveByPatenteResponse">
+    <part name="parameters" element="tns:validarAeronaveByPatenteResponse" />
+  </message>
+  <message name="fechaAeronavegabilidad_por_patente">
+    <part name="parameters" element="tns:fechaAeronavegabilidad_por_patente" />
+  </message>
+  <message name="fechaAeronavegabilidad_por_patenteResponse">
+    <part name="parameters" element="tns:fechaAeronavegabilidad_por_patenteResponse" />
+  </message>
+  <portType name="webservice_dgac">
+    <operation name="MultasByRut">
+      <input wsam:Action="http://ws/webservice_dgac/MultasByRutRequest" message="tns:MultasByRut" />
+      <output wsam:Action="http://ws/webservice_dgac/MultasByRutResponse" message="tns:MultasByRutResponse" />
+    </operation>
+    <operation name="AeronavesByFecha">
+      <input wsam:Action="http://ws/webservice_dgac/AeronavesByFechaRequest" message="tns:AeronavesByFecha" />
+      <output wsam:Action="http://ws/webservice_dgac/AeronavesByFechaResponse" message="tns:AeronavesByFechaResponse" />
+    </operation>
+    <operation name="LicenciasByRut">
+      <input wsam:Action="http://ws/webservice_dgac/LicenciasByRutRequest" message="tns:LicenciasByRut" />
+      <output wsam:Action="http://ws/webservice_dgac/LicenciasByRutResponse" message="tns:LicenciasByRutResponse" />
+    </operation>
+    <operation name="AeronavesListar">
+      <input wsam:Action="http://ws/webservice_dgac/AeronavesListarRequest" message="tns:AeronavesListar" />
+      <output wsam:Action="http://ws/webservice_dgac/AeronavesListarResponse" message="tns:AeronavesListarResponse" />
+    </operation>
+    <operation name="existeLicencia">
+      <input wsam:Action="http://ws/webservice_dgac/existeLicenciaRequest" message="tns:existeLicencia" />
+      <output wsam:Action="http://ws/webservice_dgac/existeLicenciaResponse" message="tns:existeLicenciaResponse" />
+    </operation>
+    <operation name="validarMultasbyRut">
+      <input wsam:Action="http://ws/webservice_dgac/validarMultasbyRutRequest" message="tns:validarMultasbyRut" />
+      <output wsam:Action="http://ws/webservice_dgac/validarMultasbyRutResponse" message="tns:validarMultasbyRutResponse" />
+    </operation>
+    <operation name="AeronaveByPatente">
+      <input wsam:Action="http://ws/webservice_dgac/AeronaveByPatenteRequest" message="tns:AeronaveByPatente" />
+      <output wsam:Action="http://ws/webservice_dgac/AeronaveByPatenteResponse" message="tns:AeronaveByPatenteResponse" />
+    </operation>
+    <operation name="validarAeronaveByPatente">
+      <input wsam:Action="http://ws/webservice_dgac/validarAeronaveByPatenteRequest" message="tns:validarAeronaveByPatente" />
+      <output wsam:Action="http://ws/webservice_dgac/validarAeronaveByPatenteResponse" message="tns:validarAeronaveByPatenteResponse" />
+    </operation>
+    <operation name="fechaAeronavegabilidad_por_patente">
+      <input wsam:Action="http://ws/webservice_dgac/fechaAeronavegabilidad_por_patenteRequest" message="tns:fechaAeronavegabilidad_por_patente" />
+      <output wsam:Action="http://ws/webservice_dgac/fechaAeronavegabilidad_por_patenteResponse" message="tns:fechaAeronavegabilidad_por_patenteResponse" />
+    </operation>
+  </portType>
+  <binding name="webservice_dgacPortBinding" type="tns:webservice_dgac">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="MultasByRut">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="AeronavesByFecha">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="LicenciasByRut">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="AeronavesListar">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="existeLicencia">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="validarMultasbyRut">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="AeronaveByPatente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="validarAeronaveByPatente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="fechaAeronavegabilidad_por_patente">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="webservice_dgac">
+    <port name="webservice_dgacPort" binding="tns:webservice_dgacPortBinding">
+      <soap:address location="http://localhost:8081/dgac_ws/webservice_dgac" />
+    </port>
+  </service>
+</definitions>
